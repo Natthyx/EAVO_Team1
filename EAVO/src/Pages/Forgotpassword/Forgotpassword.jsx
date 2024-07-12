@@ -1,31 +1,48 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Forgotpassword() {
   const [email, setEmail] = useState("");
-
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3000/auth/forgotpassword", {
-        email, 
-      })
-      .then((response) => {
-        if (response.data.status) {
-            alert("Please check your email")
-          navigate("/login");
+
+    try {
+      
+      const response = await axios.post("http://localhost:3000/auth/forgotpassword", { email });
+
+      if (response.data.message === "User exists") {
+        
+        try {
+          const otpResponse = await axios.post("http://localhost:3000/auth/emailVerfy", { email });
+
+          if (otpResponse.data.status) {
+            
+            navigate('/ForgotOtp', { state: { email } });
+          } else {
+            console.error('Error sending OTP:', otpResponse.data.message);
+            alert('Failed to send OTP. Please try again.');
+          }
+        } catch (otpError) {
+          console.error('Error sending OTP:', otpError);
+          alert('Error sending OTP. Please check the console for details.');
         }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      } else {
+        console.error('Error:', response.data.message);
+        alert('User not found. Please check the email address.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please check the console for details.');
+    }
   };
+
   return (
     <div className="flex items-center justify-center min-h-screen font-sans">
       <div className="w-full max-w-2xl">
-        <h1 className="text-3xl font-bold ml-4 mb-8">Forgot password</h1>
+        <h1 className="text-3xl font-bold ml-4 mb-8">Forgot Password</h1>
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="border px-6 border-black overflow-hidden">
@@ -42,15 +59,13 @@ function Forgotpassword() {
             />
           </div>
 
-        
           <button
             type="submit"
             className="w-full bg-purple-600 text-white py-5 font-bold rounded mb-8 hover:bg-purple-700"
           >
-            Send reset code
+            Send Reset Code
           </button>
         </form>
-     
       </div>
     </div>
   );

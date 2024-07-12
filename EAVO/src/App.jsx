@@ -6,6 +6,9 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Home from "./Pages/Home/Home";
 import Forgotpassword from "./Pages/Forgotpassword/Forgotpassword";
+import Otp from "./Pages/verfyOtp/otp";
+import ForgotOtp from "./Pages/Forgotpassword/ForgotPassworOtp";
+import ResetPassword from "./Pages/Forgotpassword/passworReset";
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} />
         <Route path="/forgotpassword" element={<Forgotpassword />} />
+        <Route path="verfyEmail" element={<Otp/>}/>
+        <Route path="/ForgotOtp" element={<ForgotOtp/>}/>
+        <Route path="/reset-password" element={<ResetPassword/>}/>
       </Routes>
     </Router>
   );

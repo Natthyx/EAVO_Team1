@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -7,7 +8,8 @@ dotenv.config();
 import {userRouter} from "./routes/user.js"
 
 const app=express()
-mongoose.connect('mongodb://127.0.0.1:27017/authentication');
+app.use(bodyParser.json());
+mongoose.connect('mongodb://127.0.0.1:27017/project');
 app.use(express.json())
 app.use(cors({
     origin:["http://localhost:5173"],
