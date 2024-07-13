@@ -12,7 +12,7 @@ const header = {
 };
 
 export default class Processor {
-    static async PaymentiInitiator (data) {
+    static async PaymentInitiator (data) {
         return new Promise(async (resolve, reject) => {
             await axios
             .post(process.env.CHAPA_INITIATE_URL, data, header)
