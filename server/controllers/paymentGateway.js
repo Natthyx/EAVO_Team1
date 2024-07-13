@@ -22,7 +22,23 @@ export default class PaymentGateway {
     static async initiatePayment(req, res) {
         const { amount, email, first_name, last_name, currency} = req.query.query
         const tx_ref = "tx-eavo-donation-" + Date.now();
-        const data = { amount, email, first_name, last_name, currency, tx_ref};
+        const callback_url = CALLBACK_URL;
+        const return_url = RETURN_URL;
+        const customization = {
+            title: "Empowering African Voices",
+            description: "Support our mission to amplify the voices of African communities."
+        }
+        const data = { 
+            amount,
+            email,
+            first_name,
+            last_name,
+            currency,
+            tx_ref,
+            callback_url,
+            return_url,
+            customization
+        };
 
         await axios
             .post(CHAPA_INITIATE_URL, data, header)
