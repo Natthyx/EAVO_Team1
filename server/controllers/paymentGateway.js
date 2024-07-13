@@ -1,16 +1,12 @@
 /*eslint-disable */
-import axios from "axios";
+import Bull from "bull";
 import dotenv from "dotenv";
 import { Donation } from "../models/donation";
 
 dotenv.config();
-
-
-const header = {
-    headers: {
-        Authorization: `Bearer ${CHAPA_SECRET_KEY}`
-    },
-};
+const redis_url = REDIS_URL;
+const PaymentInitiatorQueue = new Bull("paymentinitiator", redis_url);
+const PaymentVerifierQueue = new Bull("paymentverfier", redis_url);
 
 
 export default class PaymentGateway {
@@ -39,17 +35,20 @@ export default class PaymentGateway {
             return_url,
             customization
         };
-
-        await axios
-            .post(CHAPA_INITIATE_URL, data, header)
-            .then((response) => {
-                return res.status(200).json({
-                    checkout_url: response.data.data.checkout_url
-                })
-            })
-            .catch((err) => {
+        const queueObj = await PaymentInitiatorQueue.add(data);
+        PaymentInitiatorQueue.on('completed', (job) => {
+            if (job.id === queueObj.id) {
+                return res.status(200).json(
+                    {
+                        checkout_url: job.returnvalue.data.data.checkout_url
+                    });
+            }
+        })
+        PaymentInitiatorQueue.on('failed', (job) => {
+            if (job.id === queueObj.id) {
                 return res.status(400);
-            })
+            }
+        })
     }
 
     /**
@@ -58,10 +57,11 @@ export default class PaymentGateway {
      */
     static async verifyPayment(req, res) {
         const tx_ref = req.params.tx_ref;
-        await axios
-            .get(`${CHAPA_VERIFY_URL}/${tx_ref}`, header)
-            .then(async (response) => {
-                if (response.data.data.status == "success") {
+        const data = {tx_ref}
+        const queueObj = await PaymentVerifierQueue.add(data);
+        PaymentVerifierQueue.on("completed",  async (job) => {
+            if (job.id === queueObj.id) {
+                if (job.returnvalue.data.data.status == "success") {
                     const {email, amount, currency, tx_ref} = response.data.data;
                     const newDonation = new Donation({
                         email,
@@ -71,14 +71,17 @@ export default class PaymentGateway {
                     })
                     await newDonation.save()
                     return res.status(200).json({status: "success"});
-                } else if (response.data.data.status == "pending") {
+                } else if (job.returnvalue.data.data.status == "pending") {
                     return res.status(200).json({status: "pending"});
                 }
                 return res.status(200).json({status: "failed"});
-            })
-            .catch((err) => {
-                return res.status(400);  
-            })
+            }
+        })
+        PaymentVerifierQueue.on("failed", (job) => {
+            if (job.id === queueObj.id) {
+                return res.status(400);
+            }
+        })
     }
 
 }
