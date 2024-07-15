@@ -21,9 +21,22 @@ export default class PaymentGateway {
      * and returns a checkout URL in the response.
      */
     static async initiatePayment(req, res) {
-        const { amount, email, first_name, last_name, currency} = req.query
+        const { amount, email, first_name, last_name, currency} = req.body
+        if (!amount) {
+            return res.status(400).json({message: "amount required"})
+        }
+
+        if (!email) {
+            return res.status(400).json({message: "email required"})
+        }
+
+        if (!currency) {
+            currency = "ETB"
+        }
+
+
         const tx_ref = "tx-eavo-donation-" + Date.now();
-        const callback_url = process.env.CALLBACK_URL;
+        const callback_url = process.env.CALLBACK_URL; 
         const return_url = process.env.RETURN_URL;
         const customization = {
             title: "Support",
@@ -48,7 +61,6 @@ export default class PaymentGateway {
         .catch((err) => {
             return res.status(400);
         })
-        return res.status(400);
     }
 
     /**
