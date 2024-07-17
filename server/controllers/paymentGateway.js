@@ -22,8 +22,14 @@ export default class PaymentGateway {
      */
     static async initiatePayment(req, res) {
         const { amount, email, first_name, last_name, currency} = req.body
-        if (!amount) {
+        if (amount === undefined) {
             return res.status(400).json({message: "amount required"})
+        }
+        if (typeof amount != "number") {
+            return res.status(400).json({message: "amount must be integer"})
+        }
+        if (amount <= 0) {
+            return res.status(400).json({message: "amount must be greater than 0"})
         }
 
         if (!email) {
@@ -56,7 +62,12 @@ export default class PaymentGateway {
         await axios
         .post(process.env.CHAPA_INITIATE_URL + '?' + new URLSearchParams(data), data, header)
         .then((response) => {
-            return res.status(200).json({checkout_url: response.data.data.checkout_url});
+            return res.status(200).json(
+                {
+                    checkout_url: response.data.data.checkout_url,
+                    tx_ref
+                }
+            );
         })
         .catch((err) => {
             return res.status(400);
@@ -74,6 +85,7 @@ export default class PaymentGateway {
         .then(async (response) => {
             if (response.data.data.status == "success") {
                 const {email, amount, currency, tx_ref} = response.data.data;
+                // check if tx_ref is in db first
                 const newDonation = new Donation({
                     email,
                     amount,
