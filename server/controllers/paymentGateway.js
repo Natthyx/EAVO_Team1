@@ -42,6 +42,10 @@ export default class PaymentGateway {
 
 
         const tx_ref = "tx-eavo-donation-" + Date.now();
+        const transaction = await Donation.findOne({tx_ref});
+        if (transaction) {
+            return res.status(400).json({message: "transaction reference already used"});
+        }
         const callback_url = process.env.CALLBACK_URL; 
         const return_url = process.env.RETURN_URL;
         const customization = {

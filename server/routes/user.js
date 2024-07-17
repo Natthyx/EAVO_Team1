@@ -23,47 +23,47 @@ const transporter = nodemailer.createTransport({
 
 
 // Sign Up
-router.post("/signup", async (req, res) => {
-    const { username, email, password } = req.body;
-    console.log('Received signup request:', req.body);
+// router.post("/signup", async (req, res) => {
+//     const { username, email, password } = req.body;
+//     console.log('Received signup request:', req.body);
   
-    try {
-      const user = await User.findOne({ email });
-      if (user) {
-        return res.json({ status: false, message: "User already exists" });
-      }
+//     try {
+//       const user = await User.findOne({ email });
+//       if (user) {
+//         return res.json({ status: false, message: "User already exists" });
+//       }
   
-      const hashPassword = await bcryt.hash(password, 10);
-      const newUser = new User({
-        username,
-        email,
-        password: hashPassword,
-      });
-      await newUser.save();
+//       const hashPassword = await bcryt.hash(password, 10);
+//       const newUser = new User({
+//         username,
+//         email,
+//         password: hashPassword,
+//       });
+//       await newUser.save();
   
-      return res.json({ status: true, message: "User created" });
-    } catch (error) {
-      console.error('Error during signup:', error);
-      return res.status(500).json({ status: false, message: "Internal server error" });
-    }
-  });
+//       return res.json({ status: true, message: "User created" });
+//     } catch (error) {
+//       console.error('Error during signup:', error);
+//       return res.status(500).json({ status: false, message: "Internal server error" });
+//     }
+//   });
 
 // login
 
-router.post("/login", async(req,res)=>{
-    const {email,password} = req.body;
-    const user = await User.findOne({email})
-    if(!user){
-        return res.json({status:false ,message: "User not found"})
-    }
-    const validPassword = await bcryt.compare(password, user.password)
-    if(!validPassword){
-        return res.json({status:false ,message: "Invalid credentials"})
-    }   
-    const token = jwt.sign({username:user.username}, process.env.KEY,{expiresIn:"1d"})
-    res.cookie('token',token,{httpOnly:true, expiresIn:"1d"})
-    return res.json({status:true, message:"login successful"})
-})  
+// router.post("/login", async(req,res)=>{
+//     const {email,password} = req.body;
+//     const user = await User.findOne({email})
+//     if(!user){
+//         return res.json({status:false ,message: "User not found"})
+//     }
+//     const validPassword = await bcryt.compare(password, user.password)
+//     if(!validPassword){
+//         return res.json({status:false ,message: "Invalid credentials"})
+//     }   
+//     const token = jwt.sign({username:user.username}, process.env.KEY,{expiresIn:"1d"})
+//     res.cookie('token',token,{httpOnly:true, expiresIn:"1d"})
+//     return res.json({status:true, message:"login successful"})
+// })  
 
 
 
