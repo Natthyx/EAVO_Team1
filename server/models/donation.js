@@ -17,7 +17,7 @@ const donationSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-});
+}, { timestamps: true });
 
 const DonationModel = mongoose.model("donation", donationSchema);
 export { DonationModel as Donation }

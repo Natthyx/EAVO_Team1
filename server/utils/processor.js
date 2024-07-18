@@ -1,6 +1,7 @@
 /*eslint-disable */
 import axios from "axios";
 import dotenv from "dotenv";
+import MailClient from "./mailer.js";
 
 dotenv.config();
 
@@ -36,5 +37,9 @@ export default class Processor {
                 reject(err);  
             })
         })
+    }
+
+    static async MailSender(data) {
+        await MailClient.SendMail(data.to, data.subject, data.html);
     }
 }
