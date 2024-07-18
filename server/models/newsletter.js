@@ -10,7 +10,7 @@ const newsSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     }
-});
+}, { timestamps: true });
 
 const newsModel = mongoose.model("news", newsSchema);
 export { newsModel as newsletter }
