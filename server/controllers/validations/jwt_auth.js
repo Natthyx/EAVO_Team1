@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import uuid4 from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -12,9 +12,9 @@ export default class JwtManager {
         if (typeof data !== 'object') {
             return new Error("data type must be object")
         }
-        const csrf = uuid4()
+        const csrf = uuidv4()
         data.csrf = csrf
-        const token = jwt.sign(data, process.env.JWT_SECRET_KEY, {expiresIn});
+        const token = await jwt.sign(data, process.env.JWT_SECRET_KEY, {expiresIn});
         return token;
     }
 }

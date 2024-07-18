@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { User } from "../models/user";
+import { User } from "../models/user.js";
 import PwdUtil from "../utils/pwdUtils.js";
 import JwtManager from "./validations/jwt_auth.js";
 import TokenUtil from "../utils/tokenUtils.js";
@@ -38,7 +38,7 @@ export default class UserController {
                 return res.status(400).json({status: false, message: `user with the email ${email} exists`})
             }
 
-            password = PwdUtil.PwdHasher(password);
+            password = await PwdUtil.PwdHasher(password);
             user = new User({
                 username,
                 email,
@@ -48,11 +48,11 @@ export default class UserController {
             console.log(`user created with username ${user.username}`);
 
             const subject = "Email Verfication";
-            const randomString = TokenUtil.CreateToken(user.username, "EV");
+            const randomString = await TokenUtil.CreateToken(user.username, "EV");
             let verifyLink = `${process.env.EMAIL_VERIFY_LINK}${randomString}`
             let html = fs.readFileSync(process.env.VERIFY_HTML_PATH, "utf8");
-            html.replace("User", user.username);
-            html.replace("Your Verification", verifyLink);
+            html = html.replace("[User]", user.username);
+            html = html.replace("[Your Verification]", verifyLink);
             await MailClient.composeEmailMessage(user.email, subject, html)
 
             return res.status(200).json({status: true, 
@@ -71,7 +71,8 @@ export default class UserController {
         try{
             const url = req.originalUrl.split("/");
             const lastUri = url[url.length - 1];
-            const username = TokenUtil.VerifyToken(lastUri, "EV");
+            const username = await TokenUtil.VerifyToken(lastUri, "EV");
+            console.log(username);
             if (!username) {
                 return res.status(404).json({status: false, message: `user not found with username ${username}`});
             }
@@ -106,11 +107,12 @@ export default class UserController {
         if(!user || !user.verified){
             return res.status(400).json({status:false, message: "User not found or not verified"})
         }
-        const validation = PwdUtil.Compare(password, user.password);
+        const validation = await PwdUtil.Compare(password, user.password);
         if (!validation) {
             return res.status(401).json({status: false, message: "Unauthorized"});
         }
-        const token = JwtManager.sign(user.username, '1d')
+        const token = await JwtManager.sign({username: user.username}, '1d')
+        console.log(token);
         res.cookie('access_token', token, {httpOnly: true, expiresIn: '1d'});
         return res.status(200).json({status: true, token});
     }
@@ -130,12 +132,12 @@ export default class UserController {
                 return res.status(404).json({ message: 'User not found' });
             }
 
-            const randomString = TokenUtil.CreateToken(user.username, "FP");
+            const randomString = await TokenUtil.CreateToken(user.username, "FP");
             const subject = 'Instructions to Reset Your Password';
             const resetLink = `${process.env.PASSWORD_RESET_LINK}${randomString}`
             let html = fs.readFileSync(process.env.RESET_HTML_PATH, "utf8");
-            html.replace("User", user.username);
-            html.replace("Reset Link", resetLink);
+            html = html.replace("User", user.username);
+            html = html.replace("Reset Link", resetLink);
             await MailClient.composeEmailMessage(user.email, subject, html);
             return res.status(200).json({status: true, message: "email sent to reset password"});
         } catch(err) {
@@ -157,7 +159,7 @@ export default class UserController {
         try {
             const url = req.originalUrl.split("/");
             const lastUri = url[url.length - 1];
-            const username = TokenUtil.VerifyToken(lastUri, "FP");
+            const username = await TokenUtil.VerifyToken(lastUri, "FP");
             if (!username) {
                 return res.status(404).json({status: false, message: `user not found with username ${username}`});
             }
@@ -167,7 +169,7 @@ export default class UserController {
                 return res.status(404).json({status: false, message: `user not found`});
             }
 
-            password = PwdUtil.PwdHasher(password);
+            password = await PwdUtil.PwdHasher(password);
             user.password = password;
             await user.save();
             const subject = "Password saved";

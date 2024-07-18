@@ -5,8 +5,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 dotenv.config();
-import {userRouter} from "./routes/user.js"
-import injectRoutes from "./routes/payment.js";
+// import {userRouter} from "./routes/user.js"
+import injectRoutes from "./routes/index.js";
 
 const app = express();
 app.use(bodyParser.json());
@@ -18,7 +18,7 @@ app.use(cors({
 }
 ))
 app.use(cookieParser())
-app.use('/auth',userRouter)
+// app.use('/auth',userRouter)
 
 function startServer() {
     const port = process.env.PORT;

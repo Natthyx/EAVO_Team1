@@ -20,7 +20,7 @@ export default class TokenUtil {
         if (!username) {
             return new Error("username required")
         }
-        const randomString = TokenUtil.CreateRandomString(52);
+        const randomString = await TokenUtil.CreateRandomString(52);
         const key = `${typePhrase}_${randomString}`
         await redisClient.set(key, username, 86400);
         return randomString;

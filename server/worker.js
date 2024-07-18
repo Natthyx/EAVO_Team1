@@ -29,6 +29,7 @@ PaymentVerifierQueue.process(async (job) => {
 
 MailerQueue.process(async (job) => {
     console.log(`Worker processing job ${job.id} to send Email`);
-    const info = await MailClient.SendMail(job.data);
+    // console.log(job);
+    const info = await Processor.MailSender(job.data);
     console.log(`Job process finished email sent with an id ${info.messageId}`);
 })
