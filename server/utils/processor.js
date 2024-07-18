@@ -40,6 +40,7 @@ export default class Processor {
     }
 
     static async MailSender(data) {
-        await MailClient.SendMail(data.to, data.subject, data.html);
+        const info = await MailClient.SendMail(data.to, data.subject, data.html);
+        return info;
     }
 }

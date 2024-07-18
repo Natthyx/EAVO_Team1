@@ -10,8 +10,8 @@ export default function injectRoutes(app) {
 
     // user related endpoints
     app.post('/eavo/user/sign-up', UserController.signUp);
-    app.get('/eavo/user/email-verify', UserController.EmailVerify);
+    app.get('/eavo/user/email-verify/:token', UserController.EmailVerify);
     app.post('/eavo/user/login', UserController.login);
     app.post('/eavo/user/forgot-password', UserController.forgotPassword);
-    app.post('/eavo/user/reset-password', UserController.resetPassword);
+    app.post('/eavo/user/reset-password/:token', UserController.resetPassword);
 }
