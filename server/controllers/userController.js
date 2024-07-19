@@ -1,9 +1,11 @@
 import fs from 'fs';
 import { User } from "../models/user.js";
 import PwdUtil from "../utils/pwdUtils.js";
-import JwtManager from "./validations/jwt_auth.js";
+import JwtManager from "./validations/jwtAuth.js";
 import TokenUtil from "../utils/tokenUtils.js";
 import MailClient from "../utils/mailer.js";
+import { Donation } from '../models/donation.js';
+import CurrencyExchanger from '../utils/currencyExchanger.js';
 
 
 export default class UserController {
@@ -179,5 +181,32 @@ export default class UserController {
         } catch (err) {
             return res.status(500).json({status:false, message: err.toString()});
         }
+    }
+
+    /**
+     * calculates the total amount donated by a user in USD, considering different
+     * currencies by converting them using a CurrencyExchanger.
+     */
+    static async totalDonated(req, res) {
+        const { username } = req.body
+        if (!username) {
+            return res.status(400).json({status: false, message: "username required"})
+        }
+
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(404).json({status: false, message: "no user"});
+        }
+        const allDonation = await Donation.find({ email: user.email });
+        // console.log(allDonation)
+        let totalDonated = 0;
+        for (const donation of allDonation) {
+            if (donation.currency != "USD") {
+                totalDonated += await CurrencyExchanger.changeCurrency(donation.amount, donation.createdAt);
+            } else {
+                totalDonated += donation.amount;
+            }
+        }
+        return res.status(200).json({status: true, totalAmount: totalDonated, currency: "USD"});
     }
 }

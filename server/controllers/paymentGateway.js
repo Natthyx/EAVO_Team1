@@ -88,16 +88,17 @@ export default class PaymentGateway {
         .get(`${process.env.CHAPA_VERIFY_URL}/${tx_ref}`, header)
         .then(async (response) => {
             if (response.data.data.status == "success") {
-                const {email, amount, currency, tx_ref} = response.data.data;
-                // check if tx_ref is in db first
+                const {email, amount, currency} = response.data.data;
+                const transaction = await Donation.findOne({ tx_ref });
+                if (transaction)
+                    return res.status(200).json({status: "success"});
                 const newDonation = new Donation({
                     email,
                     amount,
-                    currency,
+                    currency: "ETB",
                     tx_ref
                 })
                 await newDonation.save()
-                return res.status(200).json({status: "success"});
             } else if (response.data.data.status == "pending") {
                 return res.status(200).json({status: "pending"});
             }
