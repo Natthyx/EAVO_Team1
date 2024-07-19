@@ -1,6 +1,7 @@
 /*eslint-disable */
 import PaymentGateway from "../controllers/paymentGateway.js";
 import UserController from "../controllers/userController.js";
+import Verification from "../middlewares/verifications.js";
 
 
 export default function injectRoutes(app) {
@@ -14,4 +15,5 @@ export default function injectRoutes(app) {
     app.post('/eavo/user/login', UserController.login);
     app.post('/eavo/user/forgot-password', UserController.forgotPassword);
     app.post('/eavo/user/reset-password/:token', UserController.resetPassword);
+    app.get('/eavo/user/total-donation', Verification.VerifyLogin, UserController.totalDonated);
 }
