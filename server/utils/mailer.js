@@ -41,27 +41,33 @@ class Mailer {
         await MailerQueue.add(data);
     }
 
-    async composeEmailMessages(to, subject, html) {
-        if (!to || !Array.isArray(to)) {
-            return new Error("email must be a Array")
+    async composeEmailMessages(emailData, subject) {
+        if (!emailData || typeof emailData != 'object') {
+            return new Error("email must be a object")
         }
 
         if (!subject || typeof subject != 'string') {
             return new Error("subject must be a string")
         }
-
         const htmlPattern = /<([a-z][\s\S]*?)>/i;
-        if(!html || !htmlPattern.test(html)) {
-            return new Error("html must resumble html pattern")
-        }
-        to.forEach(async (elem) => {
+        for (const to in emailData) {
+            if (!emailData.hasOwnProperty(to))
+                continue
+
+            if (!to || typeof to != 'string') {
+                return new Error("email must be a string")
+            }
+
+            if(!emailData[to] || !htmlPattern.test(emailData[to])) {
+                return new Error("html must resumble html pattern")
+            }
             const data = {
-                to: elem,
+                to,
                 subject,
-                html,
-            };
-            await MailerQueue.add(data);
-        })
+                html: emailData[to]
+            }
+            await MailerQueue.add(data)
+        }
 
     }
 
