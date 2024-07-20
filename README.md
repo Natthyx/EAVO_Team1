@@ -43,3 +43,5 @@ payment doesnt need login to be performed
 and returns checkout_url which the frontend willbe forwarded to for the transaction & tx_ref is transaction reference(save it in ur front end for verifying th transaction later)
 
 + `/eavo/donation/verify/:tx_ref` get request to get transaction status, status could be `success, failed, pending`.
+
+
