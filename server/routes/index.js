@@ -18,8 +18,8 @@ export default function injectRoutes(app) {
 
     app.get('/eavo/user/email-verify/:token', UserController.EmailVerify);
     app.post('/eavo/user/login',
-        Verification.ValidateEmail,
-        Verification.ValidatePassword,
+        // Verification.ValidateEmail,
+        // Verification.ValidatePassword,
         UserController.login);
 
     app.post('/eavo/user/forgot-password',
