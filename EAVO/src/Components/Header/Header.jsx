@@ -40,7 +40,7 @@ const Header = () => {
             {dropdownOpen && (
               <div className="absolute mt-2 w-48 font-semibold  bg-orange-300 text-black rounded shadow-lg">
                 <Link
-                  to="/programs#women-vocational-training"
+                  to="/WomenTraining"
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
                   Women's Vocational Training

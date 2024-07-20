@@ -36,7 +36,23 @@ const AboutUs = () => {
             paving the way for a more just and prosperous future.
           </div>
         </section>
-       
+        <section className="mb-10">
+          <div className="text-5xl font-bold text-blue-600 mb-6 ">
+            Our vision
+          </div>
+          <div className="text-xxl font-semibold text-gray-700 leading-relaxed">
+            Our Vision is to be a leading force in amplifying the voices of the
+            East African community, fostering unity, and promoting
+            socio-economic development. EAVO aims to create a platform where
+            individuals from diverse backgrounds can share their stories,
+            experiences, and perspectives, ultimately driving positive change
+            and empowerment within the region. By leveraging innovative
+            technologies, strategic partnerships, and community engagement, EAVO
+            envisions a future where every East African has the opportunity to
+            thrive, contribute to societal progress, and build a more inclusive
+            and prosperous community.
+          </div>
+        </section>
         <section className="mb-10 ">
           <h2 className="text-5xl font-bold text-blue-600 mb-6">Our Values</h2>
           <div className="flex flex-wrap gap-6">
@@ -91,25 +107,7 @@ const AboutUs = () => {
             </div>
           </div>
         </section>
-       
 
-        <section className="mb-10">
-          <div className="text-5xl font-bold text-blue-600 mb-6 ">
-            Our vision
-          </div>
-          <div className="text-xxl font-semibold text-gray-700 leading-relaxed">
-            Our Vision is to be a leading force in amplifying the voices of the
-            East African community, fostering unity, and promoting
-            socio-economic development. EAVO aims to create a platform where
-            individuals from diverse backgrounds can share their stories,
-            experiences, and perspectives, ultimately driving positive change
-            and empowerment within the region. By leveraging innovative
-            technologies, strategic partnerships, and community engagement, EAVO
-            envisions a future where every East African has the opportunity to
-            thrive, contribute to societal progress, and build a more inclusive
-            and prosperous community.
-          </div>
-        </section>
         <section className="mb-10">
           <div className="text-5xl font-bold text-blue-600 mb-6 ">
             Background

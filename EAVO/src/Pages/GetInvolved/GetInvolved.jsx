@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Phone, Email, LocationOn } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import event1 from '../../assets/Images/event1.jpg';
+import event2 from '../../assets/Images/event2.jpg';
 const GetInvolved = () => {
   const [phonePrefix, setPhonePrefix] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -67,6 +69,127 @@ const GetInvolved = () => {
             <p className="text-3xl">Get involved</p>
           </Link>
         </div>
+        <div>
+          <h1 className="text-5xl font-bold text-gray-800 mb-6 mt-8">
+            How to volunteer?
+          </h1>
+          <p className="text-xxl font-semibold text-gray-700 mb-4">
+            Volunteering with East African Voices Organization (EAVO) is a
+            rewarding way to make a meaningful impact in the lives of
+            individuals and communities across East Africa. To get started,
+            visit our website and explore the various volunteer opportunities
+            available. Whether you are interested in teaching, community
+            development, healthcare, or administrative support, EAVO offers a
+            wide range of roles that cater to diverse skills and interests. By
+            filling out the volunteer application form and indicating your area
+            of interest, you can join our dedicated team of volunteers who are
+            passionate about creating positive change.
+          </p>
+          <p className="text-xxl font-semibold text-gray-700 mb-4">
+            In addition to hands-on volunteering, you can also support EAVO by
+            making a donation. The "Donate" button on our website provides a
+            convenient way to contribute financially to our programs and
+            initiatives. Your donations help us provide essential resources,
+            training, and support to those in need. Every contribution, no
+            matter the size, makes a difference and helps us continue our
+            mission of empowering communities and fostering sustainable
+            development. Join us today and be a part of a transformative journey
+            towards a brighter future for East Africa.
+          </p>
+        </div>
+        <div>
+          <h1 className="text-5xl font-bold text-gray-800 mb-6 mt-8">
+            Donation Information
+          </h1>
+          <p className="text-xxl font-semibold text-gray-700 mb-4">
+            Donating to the East African Voices Organization (EAVO) is a
+            straightforward and impactful way to support our mission of
+            empowering communities and fostering sustainable development across
+            East Africa. To make a donation, simply visit our website and click
+            on the "Donate" button. This will direct you to a secure donation
+            portal where you can choose to make a one-time donation or set up
+            recurring contributions. Our donation process is designed to be
+            user-friendly, ensuring that your generous contributions can be made
+            quickly and easily. Your financial support is crucial in helping us
+            expand our programs and reach more individuals in need.
+          </p>
+          <p className="text-xxl font-semibold text-gray-700 mb-4">
+            The funds donated to EAVO are allocated with careful consideration
+            to ensure maximum impact. A significant portion of the donations
+            goes directly to our various programs, such as women's vocational
+            training, child education support, healthcare initiatives, safe
+            shelter programs, community leadership training, advocacy, and
+            awareness campaigns. Additionally, donations help us cover essential
+            operational costs, enabling us to maintain a strong and effective
+            organization. Every dollar contributed helps us provide vital
+            resources, training, and support to vulnerable communities,
+            ultimately contributing to the overall development and well-being of
+            East Africa. Your generosity empowers us to continue making a
+            difference and changing lives.
+          </p>
+        </div>
+        <section className="bg-gray-100 py-8">
+          <div className="max-w-screen-xl   mx-auto px-6 xl:px-8">
+            <h2 className="text-5xl font-bold text-gray-800 text-center mb-12">
+              Upcoming Events
+            </h2>
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
+              {/* Let's Feed Children Card */}
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src={event1}
+                  alt="Let's Feed Children"
+                  className="w-full h-82 w-100 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    Let's Feed Children
+                  </h3>
+                  <p className="text-gray-700">
+                    Your support can provide nutritious meals to children in
+                    need, helping to combat hunger and promote healthy growth
+                    and development.
+                  </p>
+                  <div className="px-2">
+                    <Link
+                      to="/ContactUs"
+                      className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                    >
+                      <p className="text-3xl">Donate</p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Donate What You Have Card */}
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src={event2}
+                  alt="Donate What You Have"
+                  className="w-full h-82 w-100 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    Donate What You Have
+                  </h3>
+                  <p className="text-gray-700">
+                    Every contribution, no matter how small, can make a
+                    significant impact. Donate items, funds, or your time to
+                    help those in need.
+                  </p>
+                  <div className="px-2">
+                    <Link
+                      to="/ContactUs"
+                      className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                    >
+                      <p className="text-3xl">Donate</p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <div className="mt-6 font-bold">
           <div className="flex items-center  text-gray-700 mb-4">
             <Phone className="text-orange-600 mr-2" />
