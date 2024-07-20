@@ -1,9 +1,29 @@
 import React from "react";
-import Footer from '../../Components/Footer/Footer';
+
+
 function Home() {
-  return <div>Home
-    <Footer/>
-  </div>;
+  return (
+    <div>
+      
+     
+      <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
+  );
 
 }
 

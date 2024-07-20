@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
         {/* Column 1: Logo and Name */}
         <div className="flex flex-col items-start">
-          <img src={logo} alt="EAVO Logo" className="mb-4 ml-24 h-42 w-48" />
-          <div className="text-5xl font-bold ml-12">Empowering</div>
-          <div className="text-8xl font-bold ml-10">African</div>
-          <div className="text-3xl font-bold ml-14">voices organization</div>
+          <img src={logo} alt="EAVO Logo" className="mb-4 ml-16 h-42 w-48" />
+          <div className="text-5xl font-bold ml-6">Empowering</div>
+          <div className="text-8xl font-bold ml-5">African</div>
+          <div className="text-3xl font-bold ml-7">voices organization</div>
         </div>
 
         {/* Column 2: Quick Links */}
@@ -166,14 +166,14 @@ const Footer = () => {
               Contact Us
             </h3>
             <p className="flex items-center mb-2">
-              <Phone className="mr-2" /> +123 456 7890
+              <Phone className="mr-2" /> +251-912345678
             </p>
             <p className="flex items-center mb-2">
-              <Email className="mr-2" /> info@eavo.org
+              <Email className="mr-2" /> info@eavo-ngo.org
             </p>
             <p className="flex items-center">
-              <LocationOn className="mr-2" /> 123 Main Street, Addis Ababa,
-              Ethiopia
+              <LocationOn className="mr-2" />  Addis Ababa,
+              Ethiopia, 1000
             </p>
           </div>
         </div>

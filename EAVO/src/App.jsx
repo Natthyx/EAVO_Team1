@@ -12,10 +12,12 @@ import ResetPassword from "./Pages/Forgotpassword/passworReset";
 import ContactUs from "./Pages/ContactUS/ContactUs";
 import Aboutus from "./Pages/Aboutus/Aboutus";
 import Footer from "./Components/Footer/Footer";
-
+import Header from "./Components/Header/Header";
+import GetInvolved from "./Pages/GetInvolved/GetInvolved";
 function App() {
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -26,6 +28,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Aboutus" element={<Aboutus />} />
+        <Route path="/GetInvolved" element={<GetInvolved />} />
       </Routes>
 
       <Footer />
