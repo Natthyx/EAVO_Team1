@@ -1,11 +1,7 @@
 import React from "react";
-import Carousell from "../../Components/Carousel/CarouselEffect";
+
 function Home() {
-  return (
-    <>
-      <Carousell />
-    </>
-  );
+  return <div>Home</div>;
 }
 
 export default Home;

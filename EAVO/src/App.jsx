@@ -9,6 +9,7 @@ import Forgotpassword from "./Pages/Forgotpassword/Forgotpassword";
 import Otp from "./Pages/verfyOtp/otp";
 import ForgotOtp from "./Pages/Forgotpassword/ForgotPassworOtp";
 import ResetPassword from "./Pages/Forgotpassword/passworReset";
+import ContactUs from './Pages/ContactUS/ContactUs'
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} />
         <Route path="/forgotpassword" element={<Forgotpassword />} />
-        <Route path="verfyEmail" element={<Otp/>}/>
-        <Route path="/ForgotOtp" element={<ForgotOtp/>}/>
-        <Route path="/reset-password" element={<ResetPassword/>}/>
+        <Route path="verfyEmail" element={<Otp />} />
+        <Route path="/ForgotOtp" element={<ForgotOtp />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/ContactUs" element={<ContactUs/>} />
       </Routes>
     </Router>
   );
