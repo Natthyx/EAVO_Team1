@@ -23,7 +23,7 @@ const Header = () => {
           <Link to="/aboutus" className="hover:text-orange-500 hover:underline">
             About Us
           </Link>
-          <Link to="/AboutUs" className="hover:text-orange-500 hover:underline">
+          <Link to="/OurMission" className="hover:text-orange-500 hover:underline">
             Our Mission
           </Link>
           <div className="relative">

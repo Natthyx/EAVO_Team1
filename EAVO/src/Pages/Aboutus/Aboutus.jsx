@@ -36,22 +36,7 @@ const AboutUs = () => {
             paving the way for a more just and prosperous future.
           </div>
         </section>
-        <section className="mb-10">
-          <div className="text-5xl font-bold text-blue-600 mb-6 ">
-            Our Objective
-          </div>
-          <div className="text-xxl font-semibold text-gray-700 leading-relaxed">
-            The East African Voices Organization (EAVO) aims to amplify the
-            voices of underrepresented communities by fostering sustainable
-            development and empowering local leaders. We strive to address
-            regional challenges through innovative solutions and advocate for
-            social justice to ensure equitable opportunities for all. Our
-            objective is to build strong partnerships and support initiatives
-            that drive positive change. Through these efforts, we seek to
-            improve the quality of life and create lasting impact in East
-            Africa.
-          </div>
-        </section>
+       
         <section className="mb-10 ">
           <h2 className="text-5xl font-bold text-blue-600 mb-6">Our Values</h2>
           <div className="flex flex-wrap gap-6">
@@ -106,64 +91,7 @@ const AboutUs = () => {
             </div>
           </div>
         </section>
-        <section className="mb-12">
-          <div className="text-5xl font-bold text-blue-600 mb-6">Our Goals</div>
-          <ul className="list-disc list-inside text-xxl text-gray-700">
-            <li className="mb-6 font-semibold">
-              <strong className="text-blue-600  font-bold">
-                Empower Local Communities:
-              </strong>{" "}
-              We aim to provide essential resources, training, and support to
-              grassroots organizations and community leaders, enabling them to
-              drive impactful development and achieve self-sufficiency. By
-              offering financial aid, material resources, and strategic
-              mentorship, we help local entities overcome challenges and
-              implement effective projects.
-            </li>
-            <li className="mb-6 font-semibold">
-              <strong className="text-blue-600 font-bold">
-                Promote Social Justice:
-              </strong>{" "}
-              We advocate for equitable access to education, healthcare, and
-              economic opportunities, ensuring that all individuals have the
-              chance to thrive regardless of their background. Our initiatives
-              address systemic inequalities and work towards creating a more
-              inclusive society where every voice is heard and valued. By
-              raising awareness and fostering dialogue.
-            </li>
-            <li className="mb-6 font-semibold">
-              <strong className="text-blue-600 font-bold">
-                Foster Innovation:
-              </strong>{" "}
-              We support and incubate initiatives that leverage technology and
-              creative problem-solving to address regional challenges and drive
-              sustainable progress. By providing resources and platforms for
-              innovative ideas, we empower local entrepreneurs and organizations
-              to develop novel solutions that can transform communities.
-            </li>
-            <li className="mb-6 font-semibold">
-              <strong className="text-blue-600 font-bold">
-                Strengthen Partnerships:
-              </strong>{" "}
-              We actively collaborate with a diverse range of stakeholders,
-              including local, national, and international organizations, to
-              enhance our collective impact. By building and nurturing strategic
-              alliances, we leverage combined resources, expertise, and networks
-              to achieve shared goals and address complex challenges.
-            </li>
-            <li className="mb-6 font-semibold">
-              <strong className="text-blue-600 font-bold">
-                Advance Research and Knowledge:
-              </strong>{" "}
-              We are committed to conducting and supporting research that
-              informs policy and practice, addressing key issues facing the
-              region. By generating valuable insights and data, we contribute to
-              the body of knowledge on regional development and help guide
-              effective strategies. Our research initiatives aim to uncover
-              evidence-based solutions that can drive progress and innovation.
-            </li>
-          </ul>
-        </section>
+       
 
         <section className="mb-10">
           <div className="text-5xl font-bold text-blue-600 mb-6 ">

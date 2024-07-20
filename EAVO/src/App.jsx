@@ -15,6 +15,7 @@ import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import GetInvolved from "./Pages/GetInvolved/GetInvolved";
 import WomenTraining from "./Pages/Programs/WomenTraining";
+import OurMission from "./Pages/OurMission/OurMission";
 function App() {
   return (
     <Router>
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Aboutus" element={<Aboutus />} />
         <Route path="/GetInvolved" element={<GetInvolved />} />
         <Route path="/WomenTraining" element={<WomenTraining />} />
+        <Route path="/OurMission" element={<OurMission />} />
       </Routes>
 
       <Footer />
