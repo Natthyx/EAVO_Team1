@@ -10,50 +10,54 @@ function Forgotpassword() {
     e.preventDefault();
 
     try {
-      
-      const response = await axios.post("http://localhost:3000/auth/forgotpassword", { email });
+      const response = await axios.post(
+        "http://localhost:3000/auth/forgotpassword",
+        { email }
+      );
 
       if (response.data.message === "User exists") {
-        
         try {
-          const otpResponse = await axios.post("http://localhost:3000/auth/emailVerfy", { email });
+          const otpResponse = await axios.post(
+            "http://localhost:3000/auth/emailVerfy",
+            { email }
+          );
 
           if (otpResponse.data.status) {
-            
-            navigate('/ForgotOtp', { state: { email } });
+            navigate("/ForgotOtp", { state: { email } });
           } else {
-            console.error('Error sending OTP:', otpResponse.data.message);
-            alert('Failed to send OTP. Please try again.');
+            console.error("Error sending OTP:", otpResponse.data.message);
+            alert("Failed to send OTP. Please try again.");
           }
         } catch (otpError) {
-          console.error('Error sending OTP:', otpError);
-          alert('Error sending OTP. Please check the console for details.');
+          console.error("Error sending OTP:", otpError);
+          alert("Error sending OTP. Please check the console for details.");
         }
       } else {
-        console.error('Error:', response.data.message);
-        alert('User not found. Please check the email address.');
+        console.error("Error:", response.data.message);
+        alert("User not found. Please check the email address.");
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred. Please check the console for details.');
+      console.error("Error:", error);
+      alert("An error occurred. Please check the console for details.");
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen font-sans">
-      <div className="w-full max-w-2xl">
-        <h1 className="text-3xl font-bold ml-4 mb-8">Forgot Password</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 font-sans">
+      <div className="w-full max-w-4xl bg-white rounded-lg shadow-2xl p-6">
+        <h1 className="text-4xl font-bold text-blue-800 mb-8 text-center">
+          Forgot Password?
+        </h1>
 
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div className="border px-6 border-black overflow-hidden">
-            <label htmlFor="email" className="block mb-1 pt-8 font-semibold">
-              Email
-            </label>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="border border-blue-500 rounded-lg p-4">
+          
             <input
               type="email"
               id="email"
               name="email"
-              className="w-full border rounded px-3 focus:outline-none"
+              placeholder="Enter your email address"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -61,7 +65,7 @@ function Forgotpassword() {
 
           <button
             type="submit"
-            className="w-full bg-purple-600 text-white py-5 font-bold rounded mb-8 hover:bg-purple-700"
+            className="w-full bg-orange-500 text-white py-3 font-bold rounded-lg hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400"
           >
             Send Reset Code
           </button>
