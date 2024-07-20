@@ -23,7 +23,10 @@ const Header = () => {
           <Link to="/aboutus" className="hover:text-orange-500 hover:underline">
             About Us
           </Link>
-          <Link to="/OurMission" className="hover:text-orange-500 hover:underline">
+          <Link
+            to="/OurMission"
+            className="hover:text-orange-500 hover:underline"
+          >
             Our Mission
           </Link>
           <div className="relative">
@@ -47,56 +50,56 @@ const Header = () => {
                 </Link>
                 <hr />
                 <Link
-                  to="/programs#child-education-support"
+                  to="/ChildSupport"
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
                   Child Education Support
                 </Link>
                 <hr />
                 <Link
-                  to="/programs#healthcare-initiatives"
+                  to="/Healthcare"
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
                   Healthcare Initiatives
                 </Link>
                 <hr />
                 <Link
-                  to="/programs#education-initiative"
+                  to="/EducationIntiative"
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
                   Education Initiative
                 </Link>
                 <hr />
                 <Link
-                  to="/programs#safe-shelter-program"
+                  to="/SafeShelter"
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
                   Safe Shelter Program
                 </Link>
                 <hr />
                 <Link
-                  to="/programs#community-leadership-training"
+                  to="/CommunityLeadership"
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
                   Community Leadership Training
                 </Link>
                 <hr />
                 <Link
-                  to="/programs#advocacy-awareness-campaign"
+                  to="/AdvocacyAwareness"
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
                   Advocacy and Awareness Campaign
                 </Link>
                 <hr />
                 <Link
-                  to="/programs#community-support-charity"
+                  to="/CommunitySupport"
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
-                  Community Support Charity
+                  Community Support
                 </Link>
                 <hr />
                 <Link
-                  to="/programs#community-support-charity"
+                  to="/Charity"
                   className="block px-4 py-2 hover:bg-gray-200"
                 >
                   Charity

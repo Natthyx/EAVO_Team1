@@ -15,7 +15,15 @@ import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import GetInvolved from "./Pages/GetInvolved/GetInvolved";
 import WomenTraining from "./Pages/Programs/WomenTraining";
+import ChildSupport from "./Pages/Programs/ChildSupport";
 import OurMission from "./Pages/OurMission/OurMission";
+import HealthCare from './Pages/Programs/Healthcare';
+import EducationIntiative from './Pages/Programs/EducationIntiative';
+import SafeShelter from './Pages/Programs/SafeShelter';
+import CommunityLeadership from './Pages/Programs/CommunityLeadership';
+import AdvocacyAwareness from './Pages/Programs/AdvocacyAwareness';
+import CommunitySupport from './Pages/Programs/CommunitySupport';
+import Charity from './Pages/Programs/Charity';
 function App() {
   return (
     <Router>
@@ -33,6 +41,14 @@ function App() {
         <Route path="/GetInvolved" element={<GetInvolved />} />
         <Route path="/WomenTraining" element={<WomenTraining />} />
         <Route path="/OurMission" element={<OurMission />} />
+        <Route path="/ChildSupport" element={<ChildSupport />} />
+        <Route path="/HealthCare" element={<HealthCare />} />
+        <Route path="/EducationIntiative" element={<EducationIntiative />} />
+        <Route path="/SafeShelter" element={<SafeShelter />} />
+        <Route path="/CommunityLeadership" element={<CommunityLeadership />} />
+        <Route path="/AdvocacyAwareness" element={<AdvocacyAwareness />} />
+        <Route path="/CommunitySupport" element={<CommunitySupport />} />
+        <Route path="/Charity" element={<Charity />} />
       </Routes>
 
       <Footer />

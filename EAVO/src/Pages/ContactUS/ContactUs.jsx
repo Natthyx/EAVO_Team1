@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Phone, Email, LocationOn } from "@mui/icons-material";
 const ContactUs = () => {
   const [phonePrefix, setPhonePrefix] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -15,7 +15,7 @@ const ContactUs = () => {
   return (
     <div className="bg-gray-100 flex items-center justify-center min-h-screen shadow-lg p-10">
       <div className="w-full max-w-2xl p-10 bg-white rounded-lg shadow-2xl">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">Contact Us</h1>
+        <h1 className="text-4xl font-bold text-orange-500 mb-8">Contact Us</h1>
         <form action="#" method="POST">
           {/* Full Name */}
           <div className="mb-6">
@@ -128,6 +128,18 @@ const ContactUs = () => {
             </button>
           </div>
         </form>
+        <div className="mt-6">
+         
+          <p className="flex items-center mb-2">
+            <Phone className="mr-2" /> +251-912345678
+          </p>
+          <p className="flex items-center mb-2">
+            <Email className="mr-2" /> info@eavo-ngo.org
+          </p>
+          <p className="flex items-center">
+            <LocationOn className="mr-2" /> Addis Ababa, Ethiopia, 1000
+          </p>
+        </div>
       </div>
     </div>
   );
