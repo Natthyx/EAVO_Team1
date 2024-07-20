@@ -7,10 +7,11 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  axios.defaults.withCredentials=true;
+  axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3000/auth/login", {
+    axios
+      .post("http://localhost:3000/auth/login", {
         email,
         password,
       })
@@ -27,7 +28,7 @@ const Login = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="w-full max-w-2xl">
-        <h1 className="font-bold ml-4 mb-8 text-2xl text-gray-800">
+        <h1 className="font-bold ml-4 mb-8 text-2xl text-blue-800">
           Log in to your EAVO account
         </h1>
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -64,14 +65,17 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-purple-600 text-white py-5 font-bold rounded mb-12 hover:bg-purple-700"
+            className="w-full bg-orange-600 text-white py-5 font-bold rounded mb-12 hover:bg-orange-700"
           >
             Log in
           </button>
         </form>
         <div className="flex justify-center px-2 space-x-4 mb-4 mt-4">
           <div className="text-gray-800">or</div>
-          <Link to="/forgotpassword" className="text-purple-800 font-bold underline hover:text-purple-900">
+          <Link
+            to="/forgotpassword"
+            className="text-orange-400 font-bold underline hover:text-orange-400"
+          >
             Forgot Password
           </Link>
         </div>
@@ -80,17 +84,9 @@ const Login = () => {
         </div>
         <div className="text-center mt-6">
           Don't have an account?{" "}
-          <Link to="/signup" className="text-purple-900 font-bold underline">
+          <Link to="/signup" className="text-orange-600 font-bold underline">
             Signup
           </Link>
-          <div className="text-purple-700 font-bold text-center underline hover:text-purple-900">
-            <a
-              href="/login"
-              className="text-purple-700 font-bold text-center underline hover:text-purple-900"
-            >
-              Log in with your organization
-            </a>
-          </div>
         </div>
       </div>
     </div>

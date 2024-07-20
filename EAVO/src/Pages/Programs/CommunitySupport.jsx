@@ -75,14 +75,12 @@ const CommunityLeadership = () => {
               Do you want to help others recover?
             </h3>
             <Link
-              to="/payment"
+              to="/Donate"
               className="bg-orange-500 text-white rounded-full py-4 px-8 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center"
             >
               <p className="text-2xl">Donate and Let Us Organize</p>
             </Link>
           </div>
-
-      
         </section>
       </div>
     </div>

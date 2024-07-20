@@ -12,7 +12,7 @@ const ChildSupport = () => {
     <div className="bg-gray-100 min-h-screen p-3">
       <div className="p-2 bg-white">
         {/* Header */}
-        <header className="text-center mb-4 flex" >
+        <header className="text-center mb-4 flex">
           <ChildCare
             fontSize="inherit"
             sx={{ fontSize: 100, color: "#FFC107" }}
@@ -20,7 +20,6 @@ const ChildSupport = () => {
           <h1 className="text-6xl font-bold text-blue-900 mb-4">
             Child Education Support
           </h1>
-        
         </header>
 
         {/* Main Content */}
@@ -128,7 +127,7 @@ const ChildSupport = () => {
               color="warning"
               size="large"
               className="text-white bg-orange-500 hover:bg-orange-600"
-              onClick={() => (window.location.href = "/payment")}
+              onClick={() => (window.location.href = "/Donate")}
             >
               Donate Now
             </Button>

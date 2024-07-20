@@ -119,6 +119,12 @@ const Header = () => {
           >
             Contact Us
           </Link>
+          <Link
+            to="/Signup"
+            className="hover:text-orange-500 hover:underline"
+          >
+            SignUp
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -253,6 +259,13 @@ const Header = () => {
                 onClick={() => setMenuOpen(false)}
               >
                 Contact Us
+              </Link>
+              <Link
+                to="/contactus"
+                className="block hover:text-orange-500 hover:underline"
+                onClick={() => setMenuOpen(false)}
+              >
+                Sign Up
               </Link>
             </div>
           </div>

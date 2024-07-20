@@ -30,7 +30,7 @@ const Signup = () => {
   return (
     <div className="flex items-center justify-center min-h-screen font-sans">
       <div className="w-full max-w-2xl">
-        <h1 className="text-3xl font-bold ml-4 mb-8">Sign up and join our Team</h1>
+        <h1 className="text-3xl font-bold ml-4 mb-8 text-blue-950" >Sign up and join our Team</h1>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="border px-6 border-black overflow-hidden transition-all duration-300">
             <label htmlFor="username" className="block mb-1 pt-8 font-semibold">Username</label>
@@ -81,7 +81,7 @@ const Signup = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-purple-600 text-white py-5 font-bold rounded mb-8 hover:bg-purple-700"
+            className="w-full bg-orange-400 text-white py-5 font-bold rounded mb-8 hover:bg-orange-700"
           >
             Sign Up
           </button>
@@ -92,7 +92,7 @@ const Signup = () => {
         <div><hr /></div>
         <p className="text-center mt-4">
           Already have an account?{" "}
-          <Link to="/login" className="text-purple-900 font-bold underline">
+          <Link to="/login" className="text-orange-500 font-bold underline">
             Log in
           </Link>
         </p>

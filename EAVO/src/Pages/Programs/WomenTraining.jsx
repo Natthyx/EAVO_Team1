@@ -111,7 +111,7 @@ const WomenTraining = () => {
               color="warning"
               size="large"
               className="text-white bg-orange-500 hover:bg-orange-600"
-              onClick={() => (window.location.href = "/payment")}
+              onClick={() => (window.location.href = "/Donate")}
             >
               Donate Now
             </Button>

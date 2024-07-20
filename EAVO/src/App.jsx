@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import "./index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
+import Login from "./Pages/Login/Login";
+import Signup from "./Pages/SignUp/Signup";
 import Home from "./Pages/Home/Home";
 import Forgotpassword from "./Pages/Forgotpassword/Forgotpassword";
 import Otp from "./Pages/verfyOtp/otp";
@@ -24,6 +24,7 @@ import CommunityLeadership from './Pages/Programs/CommunityLeadership';
 import AdvocacyAwareness from './Pages/Programs/AdvocacyAwareness';
 import CommunitySupport from './Pages/Programs/CommunitySupport';
 import Charity from './Pages/Programs/Charity';
+import Donate from './Pages/Donate/Donate';
 function App() {
   return (
     <Router>
@@ -49,6 +50,7 @@ function App() {
         <Route path="/AdvocacyAwareness" element={<AdvocacyAwareness />} />
         <Route path="/CommunitySupport" element={<CommunitySupport />} />
         <Route path="/Charity" element={<Charity />} />
+        <Route path="/Donate" element={<Donate/>} />
       </Routes>
 
       <Footer />
