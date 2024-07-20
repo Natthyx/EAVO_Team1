@@ -9,9 +9,9 @@ import Forgotpassword from "./Pages/Forgotpassword/Forgotpassword";
 import Otp from "./Pages/verfyOtp/otp";
 import ForgotOtp from "./Pages/Forgotpassword/ForgotPassworOtp";
 import ResetPassword from "./Pages/Forgotpassword/passworReset";
-import ContactUs from './Pages/ContactUS/ContactUs';
-import Aboutus from './Pages/Aboutus/Aboutus';
-
+import ContactUs from "./Pages/ContactUS/ContactUs";
+import Aboutus from "./Pages/Aboutus/Aboutus";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -27,6 +27,8 @@ function App() {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Aboutus" element={<Aboutus />} />
       </Routes>
+
+      <Footer />
     </Router>
   );
 }
