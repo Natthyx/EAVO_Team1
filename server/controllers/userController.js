@@ -6,6 +6,7 @@ import TokenUtil from "../utils/tokenUtils.js";
 import MailClient from "../utils/mailer.js";
 import { Donation } from '../models/donation.js';
 import CurrencyExchanger from '../utils/currencyExchanger.js';
+import { NewsLetter } from '../models/newsletter.js';
 
 
 export default class UserController {
@@ -15,17 +16,6 @@ export default class UserController {
      */
     static async signUp(req, res) {
         let { username, email, password } = req.body;
-        if (!username) {
-            return res.status(400).json({message: "username required"});
-        }
-
-        if (!email) {
-            return res.status(400).json({message: "email required"});
-        }
-
-        if (!password){
-            return res.status(400).json({message: "password required"});
-        }
 
         try {
             let user;
@@ -98,13 +88,7 @@ export default class UserController {
      */
     static async login(req, res) {
         const {email, password} = req.body;
-        if (!email) {
-            return res.status(400).json({message: "email required"});
-        }
 
-        if (!password){
-            return res.status(400).json({message: "password required"});
-        }
         const user = await User.findOne({ email })
         if(!user || !user.verified){
             return res.status(400).json({status:false, message: "User not found or not verified"})
@@ -125,9 +109,7 @@ export default class UserController {
      */
     static async forgotPassword(req, res) {
         const { email } = req.body;
-        if (!email) {
-            return res.status(400).json({message: "email required"});
-        }
+
         try {
             const user = await User.findOne({ email });
             if (!user) {
@@ -209,4 +191,52 @@ export default class UserController {
         }
         return res.status(200).json({status: true, totalAmount: totalDonated, currency: "USD"});
     }
+
+    /**
+     * `SubscribeNewsletter` checks if a user is already subscribed to a newsletter, and
+     * either unsubscribes them or subscribes them accordingly.
+     */
+    static async SubscribeNewsletter(req, res) {
+        const  { email } = req.body
+        let newsletter = await NewsLetter.findOne({ email });
+        if (newsletter && newsletter.subscribed) {
+            newsletter.subscribed = false;
+            await newsletter.save()
+            return res.status(200).json({status: !newsletter.subscribed, message: "sucessfully unsubscribed"});
+        }
+
+        if (newsletter && !newsletter.subscribed) {
+            newsletter.subscribed = true;
+            await newsletter.save()
+            return res.status(200).json({status: newsletter.subscribed, message: "sucessfully subscribed"});
+        }
+
+        newsletter = new NewsLetter({ email });
+        await newsletter.save()
+        return res.status(200).json({status: newsletter.subscribed, message: "successfully subscribed"});
+    }
+
+    /**
+     * `SendNews` sends a newsletter email to all subscribed users with the provided
+     * title, message, and read more link.
+     */
+    static async SendNews(req, res) {
+        const { title, message, readMore } = req.body
+        let allEmails = await NewsLetter.find({ subscribed: true });
+        const subject = title;
+        let emailData = {}
+        let html = fs.readFileSync(process.env.NEWSLETTER_HTML_PATH, "utf8");
+        const orginalHtml = html;
+        for (const email of allEmails) {
+            html = html.replace("Newsletter Title", title);
+            html = html.replace("message here", message);
+            html = html.replace("Read Link", readMore);
+            emailData[email.email] = html;
+            html = orginalHtml;
+        }
+
+        MailClient.composeEmailMessages(emailData, subject);
+        return res.status(200).json({status: true, message: "email is being sent"});
+    }
+
 }

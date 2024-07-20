@@ -13,4 +13,4 @@ const newsSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const newsModel = mongoose.model("news", newsSchema);
-export { newsModel as newsletter }
+export { newsModel as NewsLetter }
