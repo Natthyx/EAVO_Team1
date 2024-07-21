@@ -44,4 +44,21 @@ and returns checkout_url which the frontend willbe forwarded to for the transact
 
 + `/eavo/donation/verify/:tx_ref` get request to get transaction status, status could be `success, failed, pending`.
 
+### Installation
 
+After cloning this repository navigate into the root of the projects and run:
+
+```
+npm install
+```
+
+### Usage
+In order to use the API we have to run the server and also the worker for the request object to be created from instructors and students
+
+```
+npm run start-server
+```
+On different terminal
+```
+npm run start-worker
+```

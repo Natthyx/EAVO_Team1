@@ -21,12 +21,19 @@ export default class PaymentGateway {
      * and returns a checkout URL in the response.
      */
     static async initiatePayment(req, res) {
-        const { amount, email, first_name, last_name, currency} = req.body
+        console.log("payment intiation route")
+        let { amount, email, first_name, last_name, currency} = req.body
         if (amount === undefined) {
             return res.status(400).json({message: "amount required"})
         }
+        
         if (typeof amount != "number") {
-            return res.status(400).json({message: "amount must be integer"})
+            try {
+                amount = parseInt(amount);
+            } catch(err) {
+                return res.status(400).json({message: "amount must be integer"})
+            }
+            // return res.status(400).json({message: "amount must be integer"})
         }
         if (amount <= 0) {
             return res.status(400).json({message: "amount must be greater than 0"})
