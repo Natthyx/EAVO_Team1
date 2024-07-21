@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Phone, Email, LocationOn } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import event1 from '../../assets/Images/event1.jpg';
-import event2 from '../../assets/Images/event2.jpg';
+import event1 from "../../assets/Images/event1.jpg";
+import event2 from "../../assets/Images/event2.jpg";
+import image1 from "../../assets/Images/volunteer1.jpg";
+import image2 from "../../assets/Images/volunteer2.jpg";
+import image3 from "../../assets/Images/volunteer3.jpg";
 const GetInvolved = () => {
+  const images = [image1, image2, image3];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const changeImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(changeImage, 5000);
+    return () => clearInterval(intervalId);
+  }, []);
   const [phonePrefix, setPhonePrefix] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
@@ -128,12 +142,118 @@ const GetInvolved = () => {
             difference and changing lives.
           </p>
         </div>
+        <div className="bg-gray-100 min-h-screen p-5">
+          <div className="flex flex-col items-center justify-center space-y-12">
+            <div className="flex flex-col items-center text-center mb-5 space-y-6 w-full">
+              <div className="flex flex-col md:flex-row items-center bg-blue-100 w-full md:space-x-8 mt-0 p-4">
+                <div className="flex-1 md:w-1/2 px-4">
+                  <h1 className="text-6xl font-semibold mb-8">
+                    Volunteer Opportunities
+                  </h1>
+                  <h3 className="text-3xl mt-4 mb-4">
+                    Join us in making a difference! We offer various volunteer
+                    opportunities.
+                  </h3>
+                  <div className="space-y-6 mt-6">
+                    <h3 className="text-2xl pt-2 ml-4">
+                      <span className="font-bold text-4xl pt-2">
+                        Program Support:
+                      </span>{" "}
+                      Assist in our vocational training, education support,
+                      healthcare, and shelter programs.
+                    </h3>
+                    <h3 className="text-2xl pt-2 ml-4">
+                      <span className="font-bold text-4xl pt-2">Advocacy:</span>{" "}
+                      Help with campaigns to raise awareness and influence
+                      policy changes.
+                    </h3>
+                    <h3 className="text-2xl pt-2 ml-4">
+                      <span className="font-bold text-4xl pt-2">
+                        Community Outreach:
+                      </span>{" "}
+                      Participate in local initiatives and support community
+                      events.
+                    </h3>
+                    <h3 className="text-2xl pt-2 ml-4">
+                      <span className="font-bold text-4xl pt-2">
+                        Administrative Support:
+                      </span>{" "}
+                      Provide assistance with office tasks and event planning.
+                    </h3>
+                  </div>
+                  <Link
+                    to="/GetInvolved"
+                    className="bg-blue-700 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                  >
+                    <p className="text-3xl">Apply</p>
+                  </Link>
+                </div>
+                <div className="flex-1 md:w-1/2 mt-8 md:mt-0 relative rounded-lg overflow-hidden">
+                  <img
+                    src={images[currentImageIndex]}
+                    alt="Get Involved"
+                    className="w-full h-auto object-cover shadow-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col lg bg-blue-100 md:flex-row rounded-13xl items-center justify-center mt-12 space-x-8">
+            <div className="flex-1 md:w-1/2 h-100 rounded-lg overflow-hidden">
+              <img
+                src={image1}
+                alt="Donation"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex-1 md:w-1/2  p-16 rounded-lg bg-blue-100 shadow-md flex flex-col justify-between">
+              <div className="flex flex-col items-start text-left space-y-6">
+                <h1 className="text-5xl font-bold">Donation Information</h1>
+                <div>
+                  <h3 className="text-3xl">
+                    Your donations help us empower African Women and children.
+                  </h3>
+                </div>
+                <div>
+                  <h2 className="text-4xl font-semibold">
+                    <span>Where the funds go:</span>
+                  </h2>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-2xl">
+                    <span className="font-bold">Education:</span> Scholarships,
+                    school supplies, and tutoring.
+                  </h3>
+                  <h3 className="text-2xl">
+                    <span className="font-bold">Healthcare:</span> Medical care,
+                    health education, and clinics.
+                  </h3>
+                  <h3 className="text-2xl">
+                    <span className="font-bold">Shelter:</span> Safe havens,
+                    counseling, and support services.
+                  </h3>
+                  <h3 className="text-2xl">
+                    <span className="font-bold">Training Program:</span>{" "}
+                    Vocational training and community leadership development.
+                  </h3>
+                </div>
+                <Link
+                  to="/Donate"
+                  className="bg-green-700 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                >
+                  <p className="text-3xl">Donate</p>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
         <section className="bg-gray-100 py-8">
           <div className="max-w-screen-xl   mx-auto px-6 xl:px-8">
             <h2 className="text-5xl font-bold text-gray-800 text-center mb-12">
               Upcoming Events
             </h2>
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 flex">
               {/* Let's Feed Children Card */}
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <img
@@ -160,7 +280,6 @@ const GetInvolved = () => {
                   </div>
                 </div>
               </div>
-
               {/* Donate What You Have Card */}
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <img

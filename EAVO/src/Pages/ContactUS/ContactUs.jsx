@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { Phone, Email, LocationOn } from "@mui/icons-material";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
 const ContactUs = () => {
-  const [phonePrefix, setPhonePrefix] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
-  const handlePhonePrefixChange = (e) => {
-    setPhonePrefix(e.target.value);
-  };
-
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
+  const handlePhoneNumberChange = (value) => {
+    setPhoneNumber(value);
   };
 
   return (
@@ -29,7 +27,7 @@ const ContactUs = () => {
               type="text"
               id="full-name"
               name="full_name"
-              className="w-full px-4 py-3 border border-gray-300  bg-gray-100 rounded-lg text-lg font-medium focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-lg text-lg font-medium focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
             />
           </div>
@@ -55,33 +53,17 @@ const ContactUs = () => {
           <div className="mb-6">
             <label
               htmlFor="phone"
-              className="block text-gray-700 text-xl font-bold mb-2"
+              className="block text-gray-700 text-xl font-bold mb-2 "
             >
               Phone Number
             </label>
-            <div className="flex items-center border border-gray-300 bg-gray-100 rounded-lg">
-              <input
-                type="text"
-                id="phone-prefix"
-                name="phone_prefix"
-                value={phonePrefix}
-                onChange={handlePhonePrefixChange}
-                className="w-20 px-4 py-3 bg-gray-100 border-r border-gray-300 rounded-l-lg text-lg font-medium focus:outline-none focus:ring-2 focus:ring-orange-500"
-                placeholder="+1"
-                required
-              />
-              <span className="px-2 text-gray-600">|</span>
-              <input
-                type="text"
-                id="phone-number"
-                name="phone_number"
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-                className="flex-1 px-4 py-3 bg-gray-100 rounded-r-lg text-lg font-medium focus:outline-none focus:ring-2 focus:ring-orange-500"
-                placeholder="1234567890"
-                required
-              />
-            </div>
+            <PhoneInput
+              country={"et"}
+              value={phoneNumber}
+              onChange={handlePhoneNumberChange}
+              inputClass="w-full p-2 rounded border "
+              containerClass="w-full  "
+            />
           </div>
 
           {/* Country */}
@@ -129,7 +111,6 @@ const ContactUs = () => {
           </div>
         </form>
         <div className="mt-6">
-         
           <p className="flex items-center mb-2">
             <Phone className="mr-2" /> +251-912345678
           </p>
