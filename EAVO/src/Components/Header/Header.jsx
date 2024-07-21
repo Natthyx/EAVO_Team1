@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import logo from '../../assets/Images/logo.jpg'
+import logo from "../../assets/Images/logo.jpg";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -119,10 +119,7 @@ const Header = () => {
           >
             Contact Us
           </Link>
-          <Link
-            to="/Signup"
-            className="hover:text-orange-500 hover:underline"
-          >
+          <Link to="/Signup" className="hover:text-orange-500 hover:underline">
             SignUp
           </Link>
         </nav>
@@ -188,60 +185,67 @@ const Header = () => {
                 {dropdownOpen && (
                   <div className="mt-2 bg-white text-black rounded shadow-lg">
                     <Link
-                      to="/programs#women-vocational-training"
+                      to="/WomenTraining"
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setMenuOpen(false)}
                     >
                       Women's Vocational Training
                     </Link>
                     <Link
-                      to="/programs#child-education-support"
+                      to="/ChildSupport"
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setMenuOpen(false)}
                     >
                       Child Education Support
                     </Link>
                     <Link
-                      to="/programs#healthcare-initiatives"
+                      to="/Healthcare"
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setMenuOpen(false)}
                     >
                       Healthcare Initiatives
                     </Link>
                     <Link
-                      to="/programs#education-initiative"
+                      to="/EducationIntiative"
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setMenuOpen(false)}
                     >
                       Education Initiative
                     </Link>
                     <Link
-                      to="/programs#safe-shelter-program"
+                      to="/SafeShelter"
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setMenuOpen(false)}
                     >
                       Safe Shelter Program
                     </Link>
                     <Link
-                      to="/programs#community-leadership-training"
+                      to="/CommunityLeadership"
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setMenuOpen(false)}
                     >
                       Community Leadership Training
                     </Link>
                     <Link
-                      to="/programs#advocacy-awareness-campaign"
+                      to="/AdvocacyAwareness"
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setMenuOpen(false)}
                     >
                       Advocacy and Awareness Campaign
                     </Link>
                     <Link
-                      to="/programs#community-support-charity"
+                      to="/CommunitySupport"
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setMenuOpen(false)}
                     >
-                      Community Support Charity
+                      Community Support
+                    </Link>
+                    <Link
+                      to="/Charity"
+                      className="block px-4 py-2 hover:bg-gray-200"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Charity
                     </Link>
                   </div>
                 )}
@@ -261,7 +265,7 @@ const Header = () => {
                 Contact Us
               </Link>
               <Link
-                to="/contactus"
+                to="/Signup"
                 className="block hover:text-orange-500 hover:underline"
                 onClick={() => setMenuOpen(false)}
               >

@@ -7,32 +7,53 @@ function Donate() {
   const [email, setEmail] = useState("");
   const [currency, setCurrency] = useState("");
   const [amount, setAmount] = useState("");
+  const [tx_ref, setTxRef] = useState("");
+  const [statusLink, setStatusLink] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3000/donate", {
-        firstName,
-        lastName,
+    try {
+      console.log("Sending request to backend with:", {
+        first_name: firstName,
+        last_name: lastName,
         email,
         currency,
         amount,
-      })
-      .then((response) => {
-        if (response.data.status) {
-          alert("Thank you for your donation!");
-        }
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
       });
+
+      const response = await axios.post(
+        "http://localhost:5000/eavo/donation/pay",
+        {
+          first_name: firstName,
+          last_name: lastName,
+          email,
+          currency,
+          amount,
+        }
+      );
+
+      console.log("Response received:", response);
+
+      const { checkout_url, tx_ref } = response.data;
+      console.log("Transaction reference:", tx_ref);
+      setTxRef(tx_ref);
+      setStatusLink(`http://localhost:5000/eavo/donation/verify/${tx_ref}`);
+      localStorage.setItem("tx_ref", tx_ref);
+      window.location.href = checkout_url;
+    } catch (error) {
+      console.error(
+        "There was an error!",
+        error.response ? error.response.data : error.message
+      );
+      alert("There was an error processing your donation. Please try again.");
+    }
   };
 
   return (
     <div className="bg-gray-100 flex items-center justify-center min-h-screen shadow-lg p-4">
       <div className="w-full max-w-2xl p-10 bg-white rounded-lg shadow-2xl">
         <h1 className="text-4xl font-bold text-orange-500 mb-8">
-         Please fill this form to donate!
+          Please fill this form to donate!
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -97,15 +118,20 @@ function Donate() {
             >
               Currency
             </label>
-            <input
-              type="text"
+            <select
               id="currency"
               name="currency"
               className="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-lg text-lg font-medium focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-            />
+            >
+              <option value="" disabled>
+                Select currency
+              </option>
+              <option value="USD">USD</option>
+              <option value="ETB">ETB</option>
+            </select>
           </div>
 
           <div className="mb-6">
@@ -116,7 +142,7 @@ function Donate() {
               Amount
             </label>
             <input
-              type="text"
+              type="number"
               id="amount"
               name="amount"
               className="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-lg text-lg font-medium focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -135,6 +161,21 @@ function Donate() {
             </button>
           </div>
         </form>
+
+        {statusLink && (
+          <div className="mt-6">
+            <p className="text-lg text-gray-700">
+              You can check your transaction status{" "}
+              <a
+                href={statusLink}
+                className="text-orange-500 font-bold underline"
+              >
+                here
+              </a>
+              .
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

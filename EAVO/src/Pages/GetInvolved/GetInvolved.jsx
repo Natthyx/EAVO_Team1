@@ -152,7 +152,7 @@ const GetInvolved = () => {
                   </p>
                   <div className="px-2">
                     <Link
-                      to="/ContactUs"
+                      to="/Donate"
                       className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
                     >
                       <p className="text-3xl">Donate</p>
@@ -179,7 +179,7 @@ const GetInvolved = () => {
                   </p>
                   <div className="px-2">
                     <Link
-                      to="/ContactUs"
+                      to="/Donate"
                       className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
                     >
                       <p className="text-3xl">Donate</p>
