@@ -1,7 +1,49 @@
-import React from "react";
-import logo from "../../assets/Images/logo.jpg";
+import React, { useState } from 'react';import logo from "../../assets/Images/logo.jpg";
 import { Phone, Email, LocationOn } from "@mui/icons-material";
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [responseMessage, setResponseMessage] = useState('');
+
+  // Handle email input change
+  const handleChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  // Handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    const apiUrl = 'http://localhost:5000/eavo/user/news/subscribe'; 
+
+    // Prepare the request payload
+    const payload = {
+      email: email
+    };
+
+    try {
+      // Send POST request to the API
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      // Check if the response is okay
+      if (response.ok) {
+        const result = await response.json();
+        setResponseMessage(result.message);
+        setEmail('');
+      } else {
+        console.error('Failed to submit email');
+      }
+    } catch (error) {
+      console.error('Error submitting email:', error);
+    }
+    setEmail('');
+  };
+
   return (
     <footer className="bg-blue-950 text-white py-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
@@ -147,9 +189,11 @@ const Footer = () => {
             Health Care access Community Support Charity
           </div>
         
-          <form className="flex space-x-0 mt-3" >
+          <form className="flex space-x-0 mt-3" onSubmit={handleSubmit} >
             <input
               type="email"
+              value={email}
+              onChange={handleChange}
               placeholder="Enter your email *"
               className="flex-1 p-2 text-gray-700 placeholder-red-500 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
@@ -160,6 +204,12 @@ const Footer = () => {
               Submit
             </button>
           </form>
+
+          {responseMessage && (
+            <div className="mt-4 text-white">
+              {responseMessage}
+            </div>
+          )}
 
           <div className="mt-6">
             <h3 className="text-orange-500 text-3xl font-bold mb-4">

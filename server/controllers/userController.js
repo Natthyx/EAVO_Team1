@@ -211,7 +211,6 @@ export default class UserController {
             await newsletter.save()
             return res.status(200).json({status: newsletter.subscribed, message: "sucessfully subscribed"});
         }
-
         newsletter = new NewsLetter({ email });
         await newsletter.save()
         return res.status(200).json({status: newsletter.subscribed, message: "successfully subscribed"});
