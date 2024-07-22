@@ -7,6 +7,7 @@ import MailClient from "../utils/mailer.js";
 import { Donation } from '../models/donation.js';
 import CurrencyExchanger from '../utils/currencyExchanger.js';
 import { NewsLetter } from '../models/newsletter.js';
+import { Contact } from '../models/contactForm.js';
 
 
 export default class UserController {
@@ -237,6 +238,28 @@ export default class UserController {
 
         MailClient.composeEmailMessages(emailData, subject);
         return res.status(200).json({status: true, message: "email is being sent"});
+    }
+
+    static async contactList(req, res) {
+        const { fullName, email, phoneNumber, postalCode } = req.body
+        let contactPerson = await Contact.findOne({ email });
+        if (contactPerson) {
+            return res.status(400).json({status: false, message: "email already added"});
+        }
+
+        contactPerson = await Contact.findOne({ phoneNumber });
+        if (contactPerson) {
+            return res.status(400).json({status: false, message: "phone already added"});
+        }
+
+        contactPerson = Contact({
+            fullName,
+            email,
+            phoneNumber,
+            postalCode
+        })
+        await contactPerson.save()
+        return res.status(200).json({status: true, message: "contact personnal created"})
     }
 
 }

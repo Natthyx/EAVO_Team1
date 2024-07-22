@@ -57,4 +57,28 @@ export default class Verification {
         }
         next()
     }
+
+    static async ValidateFullname(req, res, next) {
+        const { fullName } = req.body
+        if (!fullName) {
+            return res.status(400).json({status: false, message: "fullName required"})
+        }
+        next()
+    }
+
+    static async ValidatePhoneNo(req, res, next) {
+        const { phoneNumber } = req.body
+        if (!phoneNumber) {
+            return res.status(400).json({status: false, message: "phoneNumber required"})
+        }
+        next()
+    }
+
+    static async ValidatePost(req, res, next) {
+        const { postalCode } = req.body
+        if (!postalCode) {
+            return res.status(400).json({status: false, message: "postalCode required"})
+        }
+        next()
+    }
 }

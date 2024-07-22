@@ -11,7 +11,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/auth/login", {
+      .post("http://localhost:5000/eavo/user/login", {
         email,
         password,
       })

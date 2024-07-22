@@ -28,6 +28,10 @@ A Donation website built with Express, MongoDB/Mongoose, Bull, and Node.js.
 
 + `/eavo/user/reset-password/:token` post request to reset password after forgot password sends email and needs `password`
 
++ `/eavo/user/login` post request to login `email, password` as a json.
+
++ `/eavo/user/contact` post request to add contact form `fullName, email, phoneNumber, postalCode, country` country has default value of Ethiopia.
+
 + `/eavo/user/total-donation` get the total donation of user after login
 
 + `/eavo/user/news/subscribe` post request to subscribe to newsletter needs `email`

@@ -15,6 +15,10 @@ const contactSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    country: {
+        type: String,
+        default: "Ethiopia"
+    },
     postalCode: {
         type: String,
         required: true
