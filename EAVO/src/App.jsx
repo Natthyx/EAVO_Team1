@@ -36,7 +36,7 @@ function App() {
         <Route path="/forgotpassword" element={<Forgotpassword />} />
         <Route path="verfyEmail" element={<Otp />} />
         <Route path="/ForgotOtp" element={<ForgotOtp />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Aboutus" element={<Aboutus />} />
         <Route path="/GetInvolved" element={<GetInvolved />} />

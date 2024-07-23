@@ -99,7 +99,6 @@ export default class UserController {
             return res.status(401).json({status: false, message: "Unauthorized"});
         }
         const token = await JwtManager.sign({username: user.username}, '1d')
-        console.log(token);
         res.cookie('access_token', token, {httpOnly: true, expiresIn: '1d'});
         return res.status(200).json({status: true, token});
     }
@@ -114,7 +113,7 @@ export default class UserController {
         try {
             const user = await User.findOne({ email });
             if (!user) {
-                return res.status(404).json({ message: 'User not found' });
+                return res.status(404).json({status: false, message: 'User not found' });
             }
 
             const randomString = await TokenUtil.CreateToken(user.username, "FP");
@@ -124,7 +123,7 @@ export default class UserController {
             html = html.replace("User", user.username);
             html = html.replace("Reset Link", resetLink);
             await MailClient.composeEmailMessage(user.email, subject, html);
-            return res.status(200).json({status: true, message: "email sent to reset password"});
+            return res.status(200).json({status: true, message: "Instruction sent to email please check your email"});
         } catch(err) {
             return res.status(500).json({status: false, message: err.toString()});
         }
@@ -137,9 +136,6 @@ export default class UserController {
      */
     static async resetPassword(req, res) {
         let { password } = req.body
-        if (!password){
-            return res.status(400).json({message: "password required"});
-        }
 
         try {
             const url = req.originalUrl.split("/");
@@ -203,17 +199,17 @@ export default class UserController {
         if (newsletter && newsletter.subscribed) {
             newsletter.subscribed = false;
             await newsletter.save()
-            return res.status(200).json({status: !newsletter.subscribed, message: "sucessfully unsubscribed"});
+            return res.status(200).json({status: !newsletter.subscribed, message: "Sucessfully Unsubscribed"});
         }
 
         if (newsletter && !newsletter.subscribed) {
             newsletter.subscribed = true;
             await newsletter.save()
-            return res.status(200).json({status: newsletter.subscribed, message: "sucessfully subscribed"});
+            return res.status(200).json({status: newsletter.subscribed, message: "Sucessfully Subscribed"});
         }
         newsletter = new NewsLetter({ email });
         await newsletter.save()
-        return res.status(200).json({status: newsletter.subscribed, message: "successfully subscribed"});
+        return res.status(200).json({status: newsletter.subscribed, message: "Successfully Subscribed"});
     }
 
     /**

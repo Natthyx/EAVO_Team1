@@ -10,17 +10,18 @@ function ResetPassword() {
   const location = useLocation();
   
   
-  const { email } = location.state || {};
+  // const { email } = location.state || {};
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    if (!email) {
-      navigate('/forgotpassword'); 
-    }
-  }, [email, navigate]);
+  //   if (!email) {
+  //     navigate('/forgotpassword'); 
+  //   }
+  // }, [email, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = location.pathname.split("/");
 
     
     if (password !== confirmPassword) {
@@ -29,8 +30,7 @@ function ResetPassword() {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/auth/resetpassword', {
-        email,
+      const response = await axios.post(`http://localhost:5000/eavo/user/reset-password/${token[token.length - 1]}`, {
         password,
       });
 
@@ -40,8 +40,8 @@ function ResetPassword() {
         setError(response.data.message || 'Failed to reset password. Please try again.');
       }
     } catch (error) {
-      console.error('Error resetting password:', error);
-      setError('An error occurred. Please check the console for details.');
+      // console.error('Error resetting password:', error);
+      setError('Failed to reset password. Please try again.');
     }
   };
 

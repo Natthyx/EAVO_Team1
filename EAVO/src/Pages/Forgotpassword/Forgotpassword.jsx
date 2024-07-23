@@ -4,6 +4,7 @@ import axios from "axios";
 
 function Forgotpassword() {
   const [email, setEmail] = useState("");
+  const [responseMessage, setResponseMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -11,34 +12,23 @@ function Forgotpassword() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/forgotpassword",
+        "http://localhost:5000/eavo/user/forgot-password",
         { email }
       );
 
-      if (response.data.message === "User exists") {
-        try {
-          const otpResponse = await axios.post(
-            "http://localhost:3000/auth/emailVerfy",
-            { email }
-          );
-
-          if (otpResponse.data.status) {
-            navigate("/ForgotOtp", { state: { email } });
-          } else {
-            console.error("Error sending OTP:", otpResponse.data.message);
-            alert("Failed to send OTP. Please try again.");
-          }
-        } catch (otpError) {
-          console.error("Error sending OTP:", otpError);
-          alert("Error sending OTP. Please check the console for details.");
-        }
-      } else {
+      if (response.status === 404) {
         console.error("Error:", response.data.message);
-        alert("User not found. Please check the email address.");
+        setResponseMessage(response.data.message);
       }
+
+      if (response.status === 200) {
+        console.log(response.data.message);
+        setResponseMessage(response.data.message);
+      }
+      
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred. Please check the console for details.");
+      setResponseMessage("User not found");
     }
   };
 
@@ -70,6 +60,11 @@ function Forgotpassword() {
             Send Reset Code
           </button>
         </form>
+        {responseMessage && (
+            <div className="mt-4 text-orange">
+              {responseMessage}
+            </div>
+          )}
       </div>
     </div>
   );
