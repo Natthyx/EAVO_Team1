@@ -12,14 +12,13 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/eavo/user/signup", { email })
+      .post("http://localhost:5000/eavo/user/sign-up", { 
+        email,
+        username,
+        password
+       })
       .then((response) => {
-        if (response.data.status) {
-          navigate("/verfyEmail", { state: { email, username, password } });
-        } else {
-          console.error("Error:", response.data.message);
-          alert("Failed to send OTP. Please try again.");
-        }
+        
       })
       .catch((error) => {
         console.error("Error sending OTP:", error);

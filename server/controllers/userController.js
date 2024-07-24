@@ -17,7 +17,6 @@ export default class UserController {
      */
     static async signUp(req, res) {
         let { username, email, password } = req.body;
-
         try {
             let user;
 
@@ -38,7 +37,6 @@ export default class UserController {
                 password
             });
             await user.save()
-            console.log(`user created with username ${user.username}`);
 
             const subject = "Email Verfication";
             const randomString = await TokenUtil.CreateToken(user.username, "EV");
@@ -155,6 +153,8 @@ export default class UserController {
             await user.save();
             const subject = "Password saved";
             let html = fs.readFileSync(process.env.RESET_CONFIRM_HTML_PATH, "utf8");
+            html = html.replace("User", user.username);
+            html = html.replace("Your Link", `${process.env.FRONT_HOME}login`);
             await MailClient.composeEmailMessage(user.email, subject, html);
             return res.status(200).json({status: true, message: "password saved"});
         } catch (err) {
