@@ -1,7 +1,10 @@
 /*eslint-disable */
+import passport from "passport";
+import dotenv from "dotenv";
 import PaymentGateway from "../controllers/paymentGateway.js";
 import UserController from "../controllers/userController.js";
 import Verification from "../middlewares/verifications.js";
+dotenv.config()
 
 
 export default function injectRoutes(app) {
@@ -52,4 +55,19 @@ export default function injectRoutes(app) {
         UserController.contactList
     )
 
+    app.get('/login/federated/google', passport.authenticate('google'));
+
+    app.get('/oauth2/redirect/google', passport.authenticate('google', {
+        successReturnToOrRedirect: process.env.FRONT_HOME,
+        failureRedirect: `${process.env.FRONT_HOME}login`
+      }));
+
+    app.get('/google/logout', function(req, res, next) {
+        req.logout(function(err) {
+            if (err) {
+              return next(err); // Passes any error to the error-handling middleware
+            }
+            res.redirect(process.env.FRONT_HOME); // Redirect to home page or login page after logout
+          });
+        });;
 }

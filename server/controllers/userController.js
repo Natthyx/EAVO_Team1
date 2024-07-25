@@ -239,12 +239,12 @@ export default class UserController {
         const { fullName, email, phoneNumber, postalCode } = req.body
         let contactPerson = await Contact.findOne({ email });
         if (contactPerson) {
-            return res.status(400).json({status: false, message: "email already added"});
+            return res.status(200).json({status: false, message: "email already added"});
         }
 
         contactPerson = await Contact.findOne({ phoneNumber });
         if (contactPerson) {
-            return res.status(400).json({status: false, message: "phone already added"});
+            return res.status(200).json({status: false, message: "phone already added"});
         }
 
         contactPerson = Contact({
