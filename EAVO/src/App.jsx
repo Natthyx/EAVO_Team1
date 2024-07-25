@@ -25,6 +25,8 @@ import AdvocacyAwareness from './Pages/Programs/AdvocacyAwareness';
 import CommunitySupport from './Pages/Programs/CommunitySupport';
 import Charity from './Pages/Programs/Charity';
 import Donate from './Pages/Donate/Donate';
+import DonationStatus from "./Pages/Payment/paymentconfirmation";
+import DonationLoad from "./Pages/Payment/PaymentLoading";
 function App() {
   return (
     <Router>
@@ -51,6 +53,8 @@ function App() {
         <Route path="/CommunitySupport" element={<CommunitySupport />} />
         <Route path="/Charity" element={<Charity />} />
         <Route path="/Donate" element={<Donate/>} />
+        <Route path="/Donation/verify/" element={<DonationLoad/>} />
+        <Route path="/Donation/verify/:tx_ref" element={<DonationStatus/>} />
       </Routes>
 
       <Footer />

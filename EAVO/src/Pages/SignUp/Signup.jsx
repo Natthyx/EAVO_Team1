@@ -9,6 +9,11 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
+  const handleGsubmit = (e) => {
+    e.preventDefault();
+    window.location.href = "http://localhost:5000/login/federated/google"
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -94,6 +99,16 @@ const Signup = () => {
             Sign Up
           </button>
         </form>
+        <p className="a text-white">a</p>
+       <form action="" onSubmit={handleGsubmit}>
+       <button
+            type="submit"
+            className="w-full bg-orange-400 text-white py-5 font-bold rounded mb-8 hover:bg-orange-700"
+            // style="margin-top: 10px;"
+          >
+            Continue With Google
+          </button>
+       </form>
         <div className="text-center mt-8 text-gray-800 text-lg mb-10">
           <p>
             By signing up, you agree to our Terms of use and Privacy Policy.
