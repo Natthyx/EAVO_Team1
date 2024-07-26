@@ -1,34 +1,10 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
-  axios.defaults.withCredentials = true;
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:5000/eavo/user/login", {
-        email,
-        password,
-      })
-      .then((response) => {
-        if (response.data.status) {
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        
+          <img
+            alt="Your Company"
+            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            className="mx-auto h-10 w-auto"
+          />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>
@@ -59,7 +35,7 @@ const Login = () => {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="/forgotpassword" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Forgot password?
                   </a>
                 </div>
@@ -86,25 +62,24 @@ const Login = () => {
               </button>
             </div>
           </form>
-          
+          <div className="flex justify-center px-2 space-x-4 mb-4 mt-4">
+          <div className="text-gray-800">or</div>
+          <Link
+            to="/forgotpassword"
+            className="text-orange-400 font-bold underline hover:text-orange-400"
+          >
+            Forgot Password
+          </Link>
+        </div>
+        <div>
           <hr />
         </div>
-        <div className="text-center mt-6 text-md">
+        <div className="text-center mt-6">
           Don't have an account?{" "}
-          <Link to="/signup" className="text-blue-900 font-bold text-xl underline">
+          <Link to="/signup" className="text-orange-600 font-bold underline">
             Signup
           </Link>
         </div>
        
         </div>
-      
-  );
-};
-
-export default Login;
-
-
-
-
-
-
+      </div>

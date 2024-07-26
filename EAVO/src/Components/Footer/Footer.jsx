@@ -105,7 +105,7 @@ const Footer = () => {
           <ul className="space-y-2">
             <li>
               <a
-                href="/programs#women-vocational-training"
+                href="/WomenTraining"
                 className="hover:underline "
               >
                 Women's Vocational Training
@@ -113,7 +113,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/programs#child-education-support"
+                href="/ChildSupport"
                 className="hover:underline"
               >
                 Child Education Support
@@ -121,7 +121,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/programs#healthcare-initiatives"
+                href="/HealthCare"
                 className="hover:underline"
               >
                 Healthcare Initiatives
@@ -129,7 +129,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/programs#education-initiative"
+                href="/EducationIntiative"
                 className="hover:underline"
               >
                 Education Initiative
@@ -137,7 +137,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/programs#education-initiative"
+                href="/SafeShelter"
                 className="hover:underline"
               >
                 Safe shelter program
@@ -145,7 +145,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/programs#education-initiative"
+                href="/CommunityLeadership"
                 className="hover:underline"
               >
                 Community leadership training
@@ -153,7 +153,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/programs#education-initiative"
+                href="/AdvocacyAwareness"
                 className="hover:underline"
               >
                 Advocacy and Awareness Compaign
@@ -161,7 +161,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/programs#education-initiative"
+                href="/CommunitySupport"
                 className="hover:underline"
               >
                 Community support
@@ -169,7 +169,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/programs#education-initiative"
+                href="/Charity"
                 className="hover:underline"
               >
                 charity

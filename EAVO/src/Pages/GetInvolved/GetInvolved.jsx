@@ -33,7 +33,7 @@ const GetInvolved = () => {
     <div className="bg-gray-100 max-w-screen-4xl min-h-screen flex flex-col items-center p-4">
       <div className="w-full   bg-white shadow-lg rounded-lg p-8 mb-8">
         <h1 className="text-6xl font-bold text-gray-800 mb-6">Why Join Us?</h1>
-        <p className="text-xxl font-semibold text-gray-700 mb-4">
+        <p className="text-xxl  text-gray-700 mb-4">
           At East African Voices Organization (EAVO), we believe that your
           involvement can drive meaningful change. Joining us provides an
           opportunity to be part of impactful initiatives that empower local
@@ -42,7 +42,7 @@ const GetInvolved = () => {
           issues such as women's vocational training, child education support,
           and healthcare initiatives.
         </p>
-        <p className="text-xxl font-semibold text-gray-700 mb-4">
+        <p className="text-xxl  text-gray-700 mb-4">
           Your support enables us to reach more people, deliver better services,
           and create sustainable solutions. Whether you volunteer your time,
           offer your skills, or support us financially, your contribution is
@@ -50,14 +50,14 @@ const GetInvolved = () => {
           those who need it most and help build a brighter future for East
           Africa.
         </p>
-        <p className="text-xxl font-semibold text-gray-700 mb-4">
+        <p className="text-xxl  text-gray-700 mb-4">
           Get involved today and become a catalyst for positive change. Your
           actions matter, and your involvement helps us amplify voices, drive
           social progress, and build stronger communities. Join us in making a
           difference and be a part of something greater.
         </p>
         <br />
-        <p className="text-xxl font-semibold text-orange-500 mb-4">
+        <p className="text-xxl  text-orange-500 mb-4">
           If you have a heart that is passionate about supporting positive
           change and a spirit willing to contribute to a greater cause, then you
           are exactly who we are looking for. Whether you bring specific skills
@@ -72,13 +72,13 @@ const GetInvolved = () => {
           Join us in our journey and make a difference!
         </p>
 
-        <div className="text-5xl font-semibold text-orange-950 mb-6">
+        <div className="text-5xl  text-orange-950 mb-6">
           so what are you waiting for?
         </div>
         <div className="px-2">
           <Link
             to="/ContactUs"
-            className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+            className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
           >
             <p className="text-3xl">Get involved</p>
           </Link>
@@ -87,7 +87,7 @@ const GetInvolved = () => {
           <h1 className="text-5xl font-bold text-gray-800 mb-6 mt-8">
             How to volunteer?
           </h1>
-          <p className="text-xxl font-semibold text-gray-700 mb-4">
+          <p className="text-xxl  text-gray-700 mb-4">
             Volunteering with East African Voices Organization (EAVO) is a
             rewarding way to make a meaningful impact in the lives of
             individuals and communities across East Africa. To get started,
@@ -99,7 +99,7 @@ const GetInvolved = () => {
             of interest, you can join our dedicated team of volunteers who are
             passionate about creating positive change.
           </p>
-          <p className="text-xxl font-semibold text-gray-700 mb-4">
+          <p className="text-xxl  text-gray-700 mb-4">
             In addition to hands-on volunteering, you can also support EAVO by
             making a donation. The "Donate" button on our website provides a
             convenient way to contribute financially to our programs and
@@ -115,7 +115,7 @@ const GetInvolved = () => {
           <h1 className="text-5xl font-bold text-gray-800 mb-6 mt-8">
             Donation Information
           </h1>
-          <p className="text-xxl font-semibold text-gray-700 mb-4">
+          <p className="text-xxl  text-gray-700 mb-4">
             Donating to the East African Voices Organization (EAVO) is a
             straightforward and impactful way to support our mission of
             empowering communities and fostering sustainable development across
@@ -127,7 +127,7 @@ const GetInvolved = () => {
             quickly and easily. Your financial support is crucial in helping us
             expand our programs and reach more individuals in need.
           </p>
-          <p className="text-xxl font-semibold text-gray-700 mb-4">
+          <p className="text-xxl  text-gray-700 mb-4">
             The funds donated to EAVO are allocated with careful consideration
             to ensure maximum impact. A significant portion of the donations
             goes directly to our various programs, such as women's vocational
@@ -147,7 +147,7 @@ const GetInvolved = () => {
             <div className="flex flex-col items-center text-center mb-5 space-y-6 w-full">
               <div className="flex flex-col md:flex-row items-center bg-blue-100 w-full md:space-x-8 mt-0 p-4">
                 <div className="flex-1 md:w-1/2 px-4">
-                  <h1 className="text-6xl font-semibold mb-8">
+                  <h1 className="text-6xl  mb-8">
                     Volunteer Opportunities
                   </h1>
                   <h3 className="text-3xl mt-4 mb-4">
@@ -183,7 +183,7 @@ const GetInvolved = () => {
                   </div>
                   <Link
                     to="/GetInvolved"
-                    className="bg-blue-700 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                    className="bg-blue-700 mt-12 text-white rounded-3xl py-3 px-12  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
                   >
                     <p className="text-3xl">Apply</p>
                   </Link>
@@ -240,7 +240,7 @@ const GetInvolved = () => {
                 </div>
                 <Link
                   to="/Donate"
-                  className="bg-green-700 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                  className="bg-green-700 mt-12 text-white rounded-3xl py-3 px-12  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
                 >
                   <p className="text-3xl">Donate</p>
                 </Link>
@@ -273,7 +273,7 @@ const GetInvolved = () => {
                   <div className="px-2">
                     <Link
                       to="/Donate"
-                      className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                      className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
                     >
                       <p className="text-3xl">Donate</p>
                     </Link>
@@ -299,7 +299,7 @@ const GetInvolved = () => {
                   <div className="px-2">
                     <Link
                       to="/Donate"
-                      className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                      className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
                     >
                       <p className="text-3xl">Donate</p>
                     </Link>
