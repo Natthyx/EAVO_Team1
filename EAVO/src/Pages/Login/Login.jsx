@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div className="flex flex-1 flex-col justify-center px-8 py-24 lg:px-32">
       <div className="sm:mx-auto sm:w-full sm:max-w-2xl">
-        <h2 className="mt-10 text-center text-6xl font-bold leading-tight tracking-tight text-gray-900">
+        <h2 className="mt-10 text-center text-4xl font-bold leading-tight tracking-tight text-gray-900">
           Sign in to your account
         </h2>
       </div>
