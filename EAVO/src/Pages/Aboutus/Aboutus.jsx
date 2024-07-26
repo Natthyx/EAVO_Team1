@@ -17,7 +17,7 @@ const AboutUs = () => {
           <div className="text-5xl font-bold text-blue-600 mb-6 ">
             Our Mission
           </div>
-          <div className="text-xxl font-semibold text-gray-700 leading-relaxed">
+          <div className="text-xxl  text-gray-700 leading-relaxed">
             Our mission is to amplify the voices of underrepresented communities
             across East Africa. We are dedicated to fostering sustainable
             development by empowering local leaders and grassroots organizations
@@ -40,7 +40,7 @@ const AboutUs = () => {
           <div className="text-5xl font-bold text-blue-600 mb-6 ">
             Our vision
           </div>
-          <div className="text-xxl font-semibold text-gray-700 leading-relaxed">
+          <div className="text-xxl  text-gray-700 leading-relaxed">
             Our Vision is to be a leading force in amplifying the voices of the
             East African community, fostering unity, and promoting
             socio-economic development. EAVO aims to create a platform where
@@ -112,7 +112,7 @@ const AboutUs = () => {
           <div className="text-5xl font-bold text-blue-600 mb-6 ">
             Background
           </div>
-          <div className="text-xxl font-semibold text-gray-700 leading-relaxed">
+          <div className="text-xxl  text-gray-700 leading-relaxed">
             East African Voices Organization (EAVO) was established with the
             primary goal of addressing the social, economic, and cultural
             challenges faced by the East African community. Founded by a group
@@ -148,7 +148,7 @@ const AboutUs = () => {
           <h2 className="text-5xl font-bold text-blue-600 mb-6">
             want to know our Impact?
           </h2>
-          <div className="text-xxl text-gray-700 mb-6 font-semibold">
+          <div className="text-xxl text-gray-700 mb-6 ">
             East African Voices Organization (EAVO) has had a profound impact on
             numerous communities across the region, with many inspiring stories
             highlighting its positive influence. One such story is that of
@@ -188,7 +188,7 @@ const AboutUs = () => {
           <h2 className="text-5xl font-bold text-blue-600 mb-6">
             Get Involved
           </h2>
-          <div className="text-xxl text-gray-700 mb-6 font-semibold">
+          <div className="text-xxl text-gray-700 mb-6 ">
             Join us in our mission to make a profound difference in the world.
             At East African Voices Organization (EAVO), we believe that every
             action, no matter how small, has the power to spark transformative
