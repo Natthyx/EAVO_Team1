@@ -55,7 +55,7 @@ function Forgotpassword() {
 
           <button
             type="submit"
-            className="w-full bg-orange-500 text-white py-3 font-bold rounded-lg hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full bg-blue-600 text-white py-3 font-bold rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
           >
             Send Reset Code
           </button>
