@@ -30,7 +30,7 @@ const GetInvolved = () => {
   };
 
   return (
-    <div className="bg-gray-100 max-w-screen-4xl min-h-screen flex flex-col items-center p-4">
+    <div className="bg-gray-100 max-w-screen-4xl min-h-screen flex flex-col font-sans items-center p-4">
       <div className="w-full   bg-white shadow-lg rounded-lg p-8 mb-8">
         <h1 className="text-6xl font-bold text-gray-800 mb-6">Why Join Us?</h1>
         <p className="text-xxl  text-gray-700 mb-4">
@@ -57,7 +57,7 @@ const GetInvolved = () => {
           difference and be a part of something greater.
         </p>
         <br />
-        <p className="text-xxl  text-orange-500 mb-4">
+        <p className="text-xxl  text-blue-800 mb-4">
           If you have a heart that is passionate about supporting positive
           change and a spirit willing to contribute to a greater cause, then you
           are exactly who we are looking for. Whether you bring specific skills
@@ -76,12 +76,13 @@ const GetInvolved = () => {
           so what are you waiting for?
         </div>
         <div className="px-2">
-          <Link
-            to="/ContactUs"
-            className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
-          >
-            <p className="text-3xl">Get involved</p>
-          </Link>
+        <Link
+  to="/ContactUs"
+  className="bg-blue-500 mt-12 text-white rounded-full py-4 px-2 text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500  flex items-center justify-center w-1/3 ml-48"
+>
+  <p className="text-2xl">Get Involved</p>
+</Link>
+
         </div>
         <div>
           <h1 className="text-5xl font-bold text-gray-800 mb-6 mt-8">

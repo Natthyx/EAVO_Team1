@@ -27,11 +27,13 @@ import Charity from './Pages/Programs/Charity';
 import Donate from './Pages/Donate/Donate';
 import DonationStatus from "./Pages/Payment/paymentconfirmation";
 import DonationLoad from "./Pages/Payment/PaymentLoading";
+
 function App() {
   return (
     <Router>
       <Header />
       <Routes>
+      
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} />

@@ -32,7 +32,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex items-center justify-center pt-24 ml-64 min-h-screen bg-gray-100 font-sans ">
+    <div className="flex items-center justify-center pt-24 ml-64 min-h-screen font-sans mb-24 ">
       <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-lg">
         <h1 className="text-4xl font-bold text-blue-950 mb-12 text-center">
           Sign up and join our Team

@@ -79,13 +79,13 @@ function Home() {
           <div className="flex flex-row gap-4 md:gap-8 items-center">
             <Link
               to="/Donate"
-              className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+              className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
             >
               <p className="text-3xl">Donate</p>
             </Link>
             <Link
               to="/GetInvolved"
-              className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+              className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
             >
               <p className="text-3xl">Join Us</p>
             </Link>
@@ -131,7 +131,7 @@ function Home() {
           <div className="flex items-start">
             <Link
               to="/Aboutus"
-              className="bg-orange-500 mt-12 text-white rounded-3xl py-2 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+              className="bg-orange-500 mt-12 text-white rounded-3xl py-2 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
             >
               <p className="text-2xl">More About us</p>
             </Link>
@@ -391,7 +391,7 @@ function Home() {
           <div className="flex justify-center pt-10">
           <Link
                 to="/Donate"
-                className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
               >
                 <p className="text-3xl">Apply</p>
               </Link>
@@ -447,7 +447,7 @@ function Home() {
             <div className="flex justify-center pt-10">
               <Link
                 to="/Donate"
-                className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+                className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
               >
                 <p className="text-3xl">Donate</p>
               </Link>

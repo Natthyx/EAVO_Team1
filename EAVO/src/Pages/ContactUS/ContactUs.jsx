@@ -55,7 +55,7 @@ const ContactUs = () => {
 
 
   return (
-    <div className="bg-gray-100 flex items-center justify-center min-h-screen shadow-lg p-10">
+    <div className="bg-gray-100 flex items-center justify-center font-sans min-h-screen shadow-lg p-10">
       <div className="w-full max-w-2xl p-10 bg-white rounded-lg shadow-2xl">
         <h1 className="text-4xl font-bold text-orange-500 mb-8">Contact Us</h1>
         <form action="#" method="POST" onSubmit={handleSubmit}>
@@ -154,7 +154,7 @@ const ContactUs = () => {
           <div className="mb-6">
             <button
               type="submit"
-              className="w-full py-3 px-4 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-xl"
+              className="w-full py-3 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl"
               onClick={handleSubmit}
             >
               Submit

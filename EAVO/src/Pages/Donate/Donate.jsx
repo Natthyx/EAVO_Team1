@@ -50,7 +50,7 @@ function Donate() {
   };
 
   return (
-    <div className="bg-gray-100 flex items-center justify-center min-h-screen shadow-lg p-4">
+    <div className="bg-gray-100 flex items-center justify-center font-sans min-h-screen shadow-lg p-4">
       <div className="w-full max-w-2xl p-10 bg-white rounded-lg shadow-2xl">
         <h1 className="text-4xl font-bold text-orange-500 mb-8">
           Please fill this form to donate!
