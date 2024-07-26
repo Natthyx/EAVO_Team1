@@ -306,12 +306,12 @@ function Home() {
             achieve financial independence. We offer training in various trades
             such as tailoring, baking, and computer skills.
           </p>
-          <button
-            type="submit"
-            className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-3"
-          >
-            Learn more
-          </button>
+          <Link 
+  to="/WomenTraining" 
+  className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-3 inline-block text-center"
+>
+  Learn More
+</Link>
         </div>
 
         <div className="flex flex-col items-center w-full max-w-md border-2 border-gray-200 shadow-md rounded-3xl bg-gray-100 mt-6">
@@ -328,12 +328,12 @@ function Home() {
             marginalized communities have access to quality education through
             scholarships, school supplies, and tutoring.
           </p>
-          <button
-            type="submit"
-            className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-4"
-          >
-            Learn more
-          </button>
+          <Link 
+  to="/ChildSupport"
+  className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-3 inline-block text-center"
+>
+  Learn More
+</Link>
         </div>
 
         <div className="flex flex-col items-center w-full max-w-md border-2 border-gray-200 shadow-md rounded-3xl bg-gray-100 mt-6">
@@ -350,12 +350,12 @@ function Home() {
             education to underserved communities to improve overall health and
             well-being.
           </p>
-          <button
-            type="submit"
-            className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-4"
-          >
-            Learn more
-          </button>
+          <Link 
+  to="/HealthCare" 
+  className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-3 inline-block text-center"
+>
+  Learn More
+</Link>
         </div>
       </div>
       {/* seventh section */}
@@ -389,12 +389,12 @@ function Home() {
             and event planning.
           </p>
           <div className="flex justify-center pt-10">
-            <Link
-              to="/GetInvolved"
-              className="bg-orange-500 mt-12 text-white rounded-3xl py-2 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
-            >
-              <p className="text-2xl">Apply</p>
-            </Link>
+          <Link
+                to="/Donate"
+                className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+              >
+                <p className="text-3xl">Apply</p>
+              </Link>
           </div>
         </div>
 
