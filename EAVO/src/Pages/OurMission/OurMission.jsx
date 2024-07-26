@@ -13,7 +13,7 @@ function OurMission() {
           <div className="text-5xl font-bold text-blue-600 mb-6 ">
             Our Objective
           </div>
-          <div className="text-xxl font-semibold text-gray-700 leading-relaxed">
+          <div className="text-xxl  text-gray-700 leading-relaxed">
             The East African Voices Organization (EAVO) aims to amplify the
             voices of underrepresented communities by fostering sustainable
             development and empowering local leaders. We strive to address
@@ -28,7 +28,7 @@ function OurMission() {
         <section className="mb-12">
           <div className="text-5xl font-bold text-blue-600 mb-6">Our Goals</div>
           <ul className="list-disc list-inside text-xxl text-gray-700">
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600  font-bold">
                 Empower Local Communities:
               </strong>{" "}
@@ -39,7 +39,7 @@ function OurMission() {
               mentorship, we help local entities overcome challenges and
               implement effective projects.
             </li>
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600 font-bold">
                 Promote Social Justice:
               </strong>{" "}
@@ -50,7 +50,7 @@ function OurMission() {
               inclusive society where every voice is heard and valued. By
               raising awareness and fostering dialogue.
             </li>
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600 font-bold">
                 Foster Innovation:
               </strong>{" "}
@@ -60,7 +60,7 @@ function OurMission() {
               innovative ideas, we empower local entrepreneurs and organizations
               to develop novel solutions that can transform communities.
             </li>
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600 font-bold">
                 Strengthen Partnerships:
               </strong>{" "}
@@ -70,7 +70,7 @@ function OurMission() {
               alliances, we leverage combined resources, expertise, and networks
               to achieve shared goals and address complex challenges.
             </li>
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600 font-bold">
                 Advance Research and Knowledge:
               </strong>{" "}
@@ -86,7 +86,7 @@ function OurMission() {
         <section className="mb-12">
           <div className="text-5xl font-bold text-blue-600 mb-6">Our Goals</div>
           <ul className="list-disc list-inside text-xxl text-gray-700">
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600  font-bold">
                 Empower Local Communities:
               </strong>{" "}
@@ -97,7 +97,7 @@ function OurMission() {
               mentorship, we help local entities overcome challenges and
               implement effective projects.
             </li>
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600 font-bold">
                 Promote Social Justice:
               </strong>{" "}
@@ -108,7 +108,7 @@ function OurMission() {
               inclusive society where every voice is heard and valued. By
               raising awareness and fostering dialogue.
             </li>
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600 font-bold">
                 Foster Innovation:
               </strong>{" "}
@@ -118,7 +118,7 @@ function OurMission() {
               innovative ideas, we empower local entrepreneurs and organizations
               to develop novel solutions that can transform communities.
             </li>
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600 font-bold">
                 Strengthen Partnerships:
               </strong>{" "}
@@ -128,7 +128,7 @@ function OurMission() {
               alliances, we leverage combined resources, expertise, and networks
               to achieve shared goals and address complex challenges.
             </li>
-            <li className="mb-6 font-semibold">
+            <li className="mb-6 ">
               <strong className="text-blue-600 font-bold">
                 Advance Research and Knowledge:
               </strong>{" "}
@@ -145,7 +145,7 @@ function OurMission() {
           <div className="text-5xl font-bold text-blue-600 mb-6 ">
             Our Core Values
           </div>
-          <div className="text-xxl font-semibold text-gray-700 leading-relaxed">
+          <div className="text-xxl  text-gray-700 leading-relaxed">
             Our core values are centered around empowerment, community, and
             integrity. EAVO is committed to empowering individuals through
             education and vocational training, enabling them to achieve
@@ -162,7 +162,7 @@ function OurMission() {
           <div className="text-5xl font-bold text-blue-600 mb-6 ">
             Our approact to achieve our mission
           </div>
-          <div className="text-xxl font-semibold text-gray-700 leading-relaxed">
+          <div className="text-xxl  text-gray-700 leading-relaxed">
             East African Voices Organization (EAVO) employs a multifaceted
             approach to achieve its mission of empowering communities and
             fostering sustainable development across East Africa. Their strategy
