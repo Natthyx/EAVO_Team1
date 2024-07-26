@@ -7,10 +7,11 @@ const federatedCredentialSchema = new mongoose.Schema({
     },
     subject: {
         type: String,
+        unique: true,
         required: true
     }
    
-});
+}, { timestamps: true });
 
 const FCModel = mongoose.model("federated", federatedCredentialSchema);
 export { FCModel };
