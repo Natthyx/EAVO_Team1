@@ -266,6 +266,7 @@ function Home() {
         <h1 className="text-6xl font-bold m-10 text-center font-serif">
           Our Mission
         </h1>
+        <div className="p-6">
         <p>
           The Empowering African Voices Organization (EAVO) is dedicated to
           supporting African women and children by advocating for their rights,
@@ -283,9 +284,10 @@ function Home() {
           improve our impact.
         </p>
       </div>
+      </div>
       {/* sixth section */}
 
-      <h1 className="text-4xl  font-bold m-10 text-center font-serif">
+      <h1 className="text-6xl  font-bold m-10 text-center font-serif">
         Our Programs
       </h1>
 
