@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import logo from "../../assets/Images/logo.jpg";
@@ -6,6 +6,21 @@ import logo from "../../assets/Images/logo.jpg";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+ 
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="bg-blue-950 text-white">
@@ -17,7 +32,7 @@ const Header = () => {
         </div>
 
         <nav className="hidden md:flex w-2/3 justify-end space-x-12">
-          <Link to="/" className="hover:text-orange-500 hover:underline">
+         <Link to="/" className="hover:text-orange-500 hover:underline">
             Home
           </Link>
           <Link to="/aboutus" className="hover:text-orange-500 hover:underline">
@@ -38,6 +53,7 @@ const Header = () => {
               <ArrowDropDownIcon
                 className="text-orange-500 ml-1"
                 style={{ fontSize: "30px" }}
+                onClick={() => setDropdownOpen(false)}
               />
             </button>
             {dropdownOpen && (
@@ -45,6 +61,7 @@ const Header = () => {
                 <Link
                   to="/WomenTraining"
                   className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => setDropdownOpen(false)}
                 >
                   Women's Vocational Training
                 </Link>
@@ -52,6 +69,7 @@ const Header = () => {
                 <Link
                   to="/ChildSupport"
                   className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => setDropdownOpen(false)}
                 >
                   Child Education Support
                 </Link>
@@ -59,6 +77,7 @@ const Header = () => {
                 <Link
                   to="/Healthcare"
                   className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => setDropdownOpen(false)}
                 >
                   Healthcare Initiatives
                 </Link>
@@ -66,6 +85,7 @@ const Header = () => {
                 <Link
                   to="/EducationIntiative"
                   className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => setDropdownOpen(false)}
                 >
                   Education Initiative
                 </Link>
@@ -73,6 +93,7 @@ const Header = () => {
                 <Link
                   to="/SafeShelter"
                   className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => setDropdownOpen(false)}
                 >
                   Safe Shelter Program
                 </Link>
@@ -80,6 +101,7 @@ const Header = () => {
                 <Link
                   to="/CommunityLeadership"
                   className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => setDropdownOpen(false)}
                 >
                   Community Leadership Training
                 </Link>
@@ -87,6 +109,7 @@ const Header = () => {
                 <Link
                   to="/AdvocacyAwareness"
                   className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => setDropdownOpen(false)}
                 >
                   Advocacy and Awareness Campaign
                 </Link>
@@ -94,6 +117,7 @@ const Header = () => {
                 <Link
                   to="/CommunitySupport"
                   className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => setDropdownOpen(false)}
                 >
                   Community Support
                 </Link>
@@ -101,6 +125,7 @@ const Header = () => {
                 <Link
                   to="/Charity"
                   className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={() => setDropdownOpen(false)}
                 >
                   Charity
                 </Link>
@@ -187,6 +212,7 @@ const Header = () => {
                     <Link
                       to="/WomenTraining"
                       className="block px-4 py-2 hover:bg-gray-200"
+
                       onClick={() => setMenuOpen(false)}
                     >
                       Women's Vocational Training
