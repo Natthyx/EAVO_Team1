@@ -18,8 +18,8 @@ const EducationIntiative = () => {
               About the Program
             </h2>
           </div>
-          <div className="text-black mb-6 text-xxl font-semibold"></div>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <div className="text-black mb-6 text-xxl "></div>
+          <p className="text-black mb-6 text-xxl ">
             The East African Voices Organization (EAVO) is passionately
             committed to transforming lives through our Education Initiative
             Program. We believe that education is the cornerstone of personal
@@ -30,7 +30,7 @@ const EducationIntiative = () => {
             resources, to ensure that every child has the chance to reach their
             full potential.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             One of the key components of our Education Initiative is the
             provision of scholarships and financial aid to students from
             low-income families. By alleviating the financial burden, we enable
@@ -42,7 +42,7 @@ const EducationIntiative = () => {
             kindergartens to lay a strong educational foundation for young
             learners.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             To enhance the quality of education, EAVO invests in teacher
             training and professional development. We organize workshops and
             training sessions for educators, equipping them with modern teaching
@@ -53,7 +53,7 @@ const EducationIntiative = () => {
             of technology in the classroom, providing schools with computers and
             internet access to facilitate digital literacy.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             Our program is committed to addressing the specific needs and
             challenges faced by women in the workforce. We recognize that many
             women face barriers to employment, such as limited access to
@@ -64,7 +64,7 @@ const EducationIntiative = () => {
             women have the opportunity to participate, regardless of their
             financial situation.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             EAVO's Education Initiative goes beyond the classroom by promoting
             community involvement and parental engagement. We believe that a
             supportive home environment is crucial for a child's academic
@@ -74,7 +74,7 @@ const EducationIntiative = () => {
             between schools and families, we create a holistic support system
             that nurtures the educational growth of children.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             The impact of our Education Initiative is profound and far-reaching.
             By providing access to quality education, we are breaking the cycle
             of poverty and empowering the next generation with the skills and
@@ -94,7 +94,7 @@ const EducationIntiative = () => {
           <div className="text-center">
             <Link
               to="/Donate"
-              className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+              className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
             >
               <p className="text-3xl">Donate and help children to learn</p>
             </Link>

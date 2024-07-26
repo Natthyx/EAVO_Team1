@@ -29,8 +29,8 @@ const ChildSupport = () => {
               About the Program
             </h2>
           </div>
-          <div className="text-black mb-6 text-xxl font-semibold"></div>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <div className="text-black mb-6 text-xxl "></div>
+          <p className="text-black mb-6 text-xxl ">
             At East African Voices Organization (EAVO), our Child Educational
             Support Program is committed to fostering the educational
             development of children in underprivileged communities. We
@@ -43,7 +43,7 @@ const ChildSupport = () => {
             children from low-income families, making education accessible to
             all.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             At the heart of our program is the belief that every woman deserves
             the opportunity to reach her full potential. We strive to create an
             inclusive and supportive learning environment where women from all
@@ -54,7 +54,7 @@ const ChildSupport = () => {
             unique interests and aspirations of each participant, ensuring a
             tailored and enriching learning experience.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             Beyond material support, EAVO's Child Educational Support Program
             focuses on creating a nurturing and supportive learning environment.
             We collaborate with local schools to provide tutoring and mentorship
@@ -66,7 +66,7 @@ const ChildSupport = () => {
             confidence and a lifelong passion for learning in every child we
             support.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             Our program is committed to addressing the specific needs and
             challenges faced by women in the workforce. We recognize that many
             women face barriers to employment, such as limited access to
@@ -77,7 +77,7 @@ const ChildSupport = () => {
             women have the opportunity to participate, regardless of their
             financial situation.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             The impact of our Child Educational Support Program extends beyond
             the classroom. By empowering children with education, we are helping
             to break the cycle of poverty and build stronger, more resilient

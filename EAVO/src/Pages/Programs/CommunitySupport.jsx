@@ -23,7 +23,7 @@ const CommunityLeadership = () => {
               About the Program
             </h2>
           </div>
-          <p className="text-gray-700 mb-6 font-semibold">
+          <p className="text-gray-700 mb-6 ">
             The Community Leadership Training program at East African Voices
             Organization (EAVO) is designed to empower individuals with the
             skills and knowledge necessary to become effective leaders in their
@@ -34,7 +34,7 @@ const CommunityLeadership = () => {
             participants are equipped to tackle local challenges, mobilize
             resources, and inspire collective action.
           </p>
-          <p className="text-gray-700 mb-6 font-semibold">
+          <p className="text-gray-700 mb-6 ">
             At the heart of the Community Leadership Training program is a
             comprehensive curriculum that covers a wide range of topics.
             Participants learn about project management, conflict resolution,
@@ -45,7 +45,7 @@ const CommunityLeadership = () => {
             accountability, ensuring that future leaders are guided by integrity
             and a commitment to serving their communities.
           </p>
-          <p className="text-gray-700 mb-6 font-semibold">
+          <p className="text-gray-700 mb-6 ">
             One of the key strengths of the program is its hands-on approach to
             learning. Participants are encouraged to engage in real-world
             projects that address specific needs within their communities. This
@@ -56,7 +56,7 @@ const CommunityLeadership = () => {
             confidence in their abilities and see firsthand the difference that
             effective leadership can make.
           </p>
-          <p className="text-gray-700 mb-6 font-semibold">
+          <p className="text-gray-700 mb-6 ">
             The Community Leadership Training program also fosters a network of
             support and collaboration among participants. By bringing together
             individuals from diverse backgrounds and experiences, the program
@@ -76,7 +76,7 @@ const CommunityLeadership = () => {
             </h3>
             <Link
               to="/Donate"
-              className="bg-orange-500 text-white rounded-full py-4 px-8 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center"
+              className="bg-orange-500 text-white rounded-full py-4 px-8  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center"
             >
               <p className="text-2xl">Donate and Let Us Organize</p>
             </Link>

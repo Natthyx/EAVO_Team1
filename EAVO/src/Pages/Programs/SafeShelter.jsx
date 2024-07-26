@@ -19,8 +19,8 @@ const SafeShelter = () => {
               About the Program
             </h2>
           </div>
-          <div className="text-black mb-6 text-xxl font-semibold"></div>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <div className="text-black mb-6 text-xxl "></div>
+          <p className="text-black mb-6 text-xxl ">
             The Safe Shelter Program at the East African Voices Organization
             (EAVO) is dedicated to providing secure and stable housing for
             vulnerable individuals and families in East Africa. Recognizing that
@@ -30,7 +30,7 @@ const SafeShelter = () => {
             environment where individuals can rebuild their lives and gain
             independence.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             One of the core components of our Safe Shelter Program is the
             construction and renovation of housing units. We work with local
             communities to identify the most pressing needs and prioritize
@@ -40,7 +40,7 @@ const SafeShelter = () => {
             offers a sense of stability. Each housing unit is designed to be
             functional, comfortable, and conducive to family life.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             Beyond providing physical shelter, EAVO’s program offers
             comprehensive support services to help residents achieve long-term
             stability. This includes access to healthcare, education, and
@@ -58,7 +58,7 @@ const SafeShelter = () => {
           <div className="text-center">
             <Link
               to="/Donate"
-              className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+              className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
             >
               <p className="text-3xl">Donate and help homeless people</p>
             </Link>

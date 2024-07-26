@@ -15,8 +15,8 @@ const Charity = () => {
               About the Program
             </h2>
           </div>
-          <div className="text-black mb-6 text-xxl font-semibold"></div>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <div className="text-black mb-6 text-xxl "></div>
+          <p className="text-black mb-6 text-xxl ">
             The East African Voices Organization (EAVO) Charity Program is a
             multifaceted initiative aimed at addressing the diverse social and
             economic challenges faced by communities in East Africa. Central to
@@ -29,7 +29,7 @@ const Charity = () => {
             initiatives, EAVO is dedicated to fostering a brighter future for
             East African communities.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             One of the cornerstone initiatives of EAVO's Charity Program is the
             Child Educational Support program. This initiative is designed to
             ensure that children in underserved communities have access to
@@ -40,7 +40,7 @@ const Charity = () => {
             and aspiration in young minds, encouraging them to strive for a
             better future.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             In addition to education, EAVO places a strong emphasis on
             healthcare through its Health Care Initiatives. These initiatives
             aim to improve health outcomes by providing essential medical
@@ -58,7 +58,7 @@ const Charity = () => {
           <div className="text-center">
             <Link
               to="/Donate"
-              className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+              className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
             >
               <p className="text-3xl">Get into action and donate</p>
             </Link>
@@ -77,14 +77,14 @@ const Charity = () => {
             </div>
             <div className="bg-blue-100 p-4 rounded-lg shadow-md">
               <School className="text-blue-500 text-6xl mx-auto mb-4" />
-              <h2 className="text-xl font-semibold text-gray-800">Education</h2>
+              <h2 className="text-xl  text-gray-800">Education</h2>
               <p className="text-gray-600">
                 Ensuring access to quality education for all children.
               </p>
             </div>
             <div className="bg-green-100 p-4 rounded-lg shadow-md">
               <Home className="text-green-500 text-6xl mx-auto mb-4" />
-              <h2 className="text-xl font-semibold text-gray-800">
+              <h2 className="text-xl  text-gray-800">
                 Safe Shelter
               </h2>
               <p className="text-gray-600">
@@ -93,7 +93,7 @@ const Charity = () => {
             </div>
             <div className="bg-pink-100 p-4 rounded-lg shadow-md">
               <Favorite className="text-pink-500 text-6xl mx-auto mb-4" />
-              <h2 className="text-xl font-semibold text-gray-800">Support</h2>
+              <h2 className="text-xl  text-gray-800">Support</h2>
               <p className="text-gray-600">
                 Offering love and support to vulnerable communities.
               </p>

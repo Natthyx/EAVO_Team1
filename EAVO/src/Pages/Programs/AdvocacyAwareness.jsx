@@ -19,8 +19,8 @@ const AdvocacyAwareness = () => {
               About the Program
             </h2>
           </div>
-          <div className="text-black mb-6 text-xxl font-semibold"></div>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <div className="text-black mb-6 text-xxl "></div>
+          <p className="text-black mb-6 text-xxl ">
             The Advocacy and Awareness Campaign at East African Voices
             Organization (EAVO) is a vital initiative aimed at raising awareness
             about key social issues and advocating for positive change. This
@@ -31,7 +31,7 @@ const AdvocacyAwareness = () => {
             the voices of marginalized groups and drive meaningful social
             transformation.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             A central component of the Advocacy and Awareness Campaign is public
             education. EAVO organizes workshops, seminars, and community events
             to inform individuals about critical issues that impact their lives
@@ -42,7 +42,7 @@ const AdvocacyAwareness = () => {
             informed and engaged citizenry capable of contributing to societal
             progress.
           </p>
-          <p className="text-black mb-6 text-xxl font-semibold">
+          <p className="text-black mb-6 text-xxl ">
             In addition to public education, the campaign places a strong
             emphasis on policy advocacy. EAVO works closely with policymakers,
             government officials, and other stakeholders to influence
@@ -61,7 +61,7 @@ const AdvocacyAwareness = () => {
           <div className="text-center">
             <Link
               to="/Donate"
-              className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
+              className="bg-orange-500 mt-12 text-white rounded-full py-4 px-2  text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 animate-bounce flex items-center justify-center "
             >
               <p className="text-3xl">Let us create community awareness</p>
             </Link>
