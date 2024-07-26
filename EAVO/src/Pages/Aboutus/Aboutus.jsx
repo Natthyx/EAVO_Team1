@@ -1,11 +1,11 @@
 import React from "react";
-
+import aboutUsImage from '../../assets/p8.png'
 const AboutUs = () => {
   return (
     
     <div className="bg-gray-100 min-h-screen flex flex-col items-center font-sans py-5 px-5">
       <div className="w-full max-w-screen-3xl bg-white rounded-lg shadow-2xl p-10 font-sans">
-        <header className="text-center mb-10">
+      <header className="text-center mb-10">
           <div className="text-6xl font-bold text-blue-950 mb-2">
             East African Voices Organization
           </div>
@@ -13,6 +13,27 @@ const AboutUs = () => {
             Empowering communities through collaboration and innovation.
           </p>
         </header>
+      <div className="bg-gray-100 py-12 px-4">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center">
+        <div className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+          <img
+            src={aboutUsImage}
+            alt="About Us"
+            className="w-full h-128 rounded-lg shadow-lg"
+          />
+        </div>
+        <div className="lg:w-1/2">
+          <h1 className="text-5xl font-bold text-blue-600 mb-4">About Us</h1>
+          
+          <p className="text-xxl mb-4">
+          our mission is to spread joy and create a lasting positive impact throughout East Africa. By empowering women and children through education, healthcare, and economic opportunities, we are dedicated to transforming lives and fostering brighter futures. Our initiatives aim to uplift communities, promote gender equality, and support local development, ensuring that every effort contributes to a happier, healthier, and more prosperous East Africa. Through our work, we strive to bring smiles to countless faces and inspire hope and resilience across the region
+          </p>
+          
+        
+        </div>
+      </div>
+    </div>
+       
 
         <section className="mb-10">
           <div className="text-5xl font-bold text-blue-600 mb-6 ">
