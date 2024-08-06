@@ -44,7 +44,7 @@ readMore is a link to your more info.
 + `/eavo/events/:id` get, post, delete by id other than get all endpoints need token
 
 + `/eavo/programs` get and post request to get all and post programs (posting events needs token)
-+ `/eavo/events/:id` get, post, delete by id other than get all endpoints need token
++ `/eavo/programs/:id` get, post, delete by id other than get all endpoints need token
 
 
 #### Payment
