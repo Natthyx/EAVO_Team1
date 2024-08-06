@@ -20,24 +20,32 @@ A Donation website built with Express, MongoDB/Mongoose, Bull, and Node.js.
 
 #### User
 
-+ `/eavo/user/sign-up` Post request to signup user needs `email, username & password` to be sent in json format
++ `/eavo/admin/sign-up` Post request to signup user needs `email & password` to be sent in json format
 
-+ `/eavo/user/email-verify/:token`, get request to verify email after signup
++ `/eavo/admin/email-verify/:token`, get request to verify email after signup
 
-+ `/eavo/user/forgot-password`, post request and needs `email` as a json
++ `/eavo/admin/forgot-password`, post request and needs `email` as a json
 
-+ `/eavo/user/reset-password/:token` post request to reset password after forgot password sends email and needs `password`
++ `/eavo/admin/reset-password/:token` post request to reset password after forgot password sends email and needs `password`
 
-+ `/eavo/user/login` post request to login `email, password` as a json.
++ `/eavo/admin/login` post request to login `email, password` as a json.
 
 + `/eavo/user/contact` post request to add contact form `fullName, email, phoneNumber, postalCode, country` country has default value of Ethiopia.
 
-+ `/eavo/user/total-donation` get the total donation of user after login
++ `/eavo/user/total-donation` get the total donation of user using their email
 
 + `/eavo/user/news/subscribe` post request to subscribe to newsletter needs `email`
 
 + `/eavo/user/news/send` post request to send email to all subscribers and needs `title, message, readMore` title is the title of the email, message is the main message of the email and it's put to `<p>` tag in html, 
 readMore is a link to your more info.
+
++ `/eavo/events` get and post request to get all and post events (posting events needs token)
+
++ `/eavo/events/:id` get, post, delete by id other than get all endpoints need token
+
++ `/eavo/programs` get and post request to get all and post programs (posting events needs token)
++ `/eavo/events/:id` get, post, delete by id other than get all endpoints need token
+
 
 #### Payment
 
