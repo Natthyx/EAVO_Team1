@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import PaymentGateway from "../controllers/paymentGateway.js";
 import UserController from "../controllers/userController.js";
 import Verification from "../middlewares/verifications.js";
+import EventHandler from "../controllers/eventController.js";
+import ProgramHandler from "../controllers/programController.js";
 dotenv.config()
 
 
@@ -13,23 +15,23 @@ export default function injectRoutes(app) {
     app.get('/eavo/donation/verify/:tx_ref', PaymentGateway.verifyPayment);
 
     // user related endpoints
-    app.post('/eavo/user/sign-up',
+    app.post('/eavo/admin/sign-up',
         Verification.ValidateEmail,
         Verification.ValidateUsername,
         Verification.ValidatePassword,
         UserController.signUp);
 
-    app.get('/eavo/user/email-verify/:token', UserController.EmailVerify);
-    app.post('/eavo/user/login',
+    app.get('/eavo/admin/email-verify/:token', UserController.EmailVerify);
+    app.post('/eavo/admin/login',
         Verification.ValidateEmail,
         Verification.ValidatePassword,
         UserController.login);
 
-    app.post('/eavo/user/forgot-password',
+    app.post('/eavo/admin/forgot-password',
         Verification.ValidateEmail,
         UserController.forgotPassword);
 
-    app.post('/eavo/user/reset-password/:token',
+    app.post('/eavo/admin/reset-password/:token',
         Verification.ValidatePassword,
         UserController.resetPassword);
 
@@ -54,6 +56,32 @@ export default function injectRoutes(app) {
         Verification.ValidatePost,
         UserController.contactList
     )
+
+    // event handler
+    app.get('/events/', EventHandler.getAllEvents);
+    app.post('/events/',
+        Verification.VerifyLogin,
+        EventHandler.createEvent);
+    app.get('/events/:id', EventHandler.getEventById);
+    app.put('/events/:id',
+        Verification.VerifyLogin,
+        EventHandler.updateEvent);
+    app.delete('/events/:id',
+        Verification.VerifyLogin,
+        EventHandler.deleteEvent)
+
+    // program handler
+    app.get('/programs/', ProgramHandler.getAllPrograms);
+    app.post('/programs/',
+        Verification.VerifyLogin,
+        ProgramHandler.createProgram);
+    app.get('/programs/:id', ProgramHandler.getProgramById);
+    app.put('/programs/:id',
+        Verification.VerifyLogin,
+        ProgramHandler.updateProgram);
+    app.delete('/programs/:id',
+        Verification.VerifyLogin,
+        ProgramHandler.deleteProgram);
 
     app.get('/login/federated/google', passport.authenticate('google'));
 

@@ -89,8 +89,6 @@ passport.deserializeUser(function(user, cb) {
     });
   });
 
-passport
-
 const app = express();
 app.use(bodyParser.json());
 mongoose.connect(process.env.MONGO_URL);

@@ -167,14 +167,11 @@ export default class UserController {
      * currencies by converting them using a CurrencyExchanger.
      */
     static async totalDonated(req, res) {
-        const { username } = req.body
-        if (!username) {
-            return res.status(400).json({status: false, message: "username required"})
-        }
+        const { email } = req.body
 
-        const user = await User.findOne({ username });
+        const user = await Donation.findOne({ email });
         if (!user) {
-            return res.status(404).json({status: false, message: "no user"});
+            return res.status(404).json({status: false, message: "no user with donation found"});
         }
         const allDonation = await Donation.find({ email: user.email });
         // console.log(allDonation)

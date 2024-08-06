@@ -20,5 +20,5 @@ const userSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-const UserModel = mongoose.model("user", userSchema);
-export { UserModel as User }
+const AdminModel = mongoose.model("admins", userSchema);
+export { AdminModel as User }

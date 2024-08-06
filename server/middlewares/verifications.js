@@ -27,9 +27,10 @@ export default class Verification {
     }
 
     static async ValidateUsername(req, res, next) {
-        const { username } = req.body
+        const { username, email } = req.body
         if (!username) {
-            return res.status(400).json({status: false, message: "username required"})
+            const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
+            req.body.username = `${email.split("@")[0]}${getRandomInt(1000, 10000)}`;
         }
         next()
     }
