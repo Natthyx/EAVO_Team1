@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { LocalHospital, School, Home, Favorite } from "@mui/icons-material";
 const Charity = () => {
   return (
-    <div className="bg-gray-100 min-h-screen p-3">
+    <div className="bg-gray-100 min-h-screen p-3 w-[90%] mx-auto">
       <div className="p-2 bg-white">
         <header className="text-center mb-4">
           <h1 className="text-6xl font-bold text-blue-900 mb-4">Charity</h1>

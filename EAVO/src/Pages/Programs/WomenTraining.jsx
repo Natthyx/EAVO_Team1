@@ -8,7 +8,7 @@ import women4 from "../../assets/Images/women4.jpg";
 
 const WomenTraining = () => {
   return (
-    <div className="bg-gray-100 min-h-screen p-3">
+    <div className="bg-gray-100 min-h-screen p-3 w-[90%] mx-auto">
       <div className="p-2 bg-white">
         {/* Header */}
         <header className="text-center mb-4">
@@ -22,7 +22,7 @@ const WomenTraining = () => {
         </header>
 
         {/* Main Content */}
-        <section className="max-w-screen-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <section className="max-w-screen-4xl mx-auto bg-white p-8 rounded-lg">
           <div className="flex items-center mb-4">
             <h2 className="text-4xl font-bold text-gray-800 ml-12">
               About the Program

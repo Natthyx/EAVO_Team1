@@ -2,7 +2,7 @@ import React from 'react'
 
 function OurMission() {
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center py-5 px-5">
+    <div className="bg-gray-100 min-h-screen flex flex-col items-center py-5 px-5 w-[90%] mx-auto">
       <div className="w-full max-w-screen-3xl bg-white rounded-lg shadow-2xl p-10 font-sans">
         <header className="text-center mb-10">
           <div className="text-6xl font-bold text-blue-950 mb-2">

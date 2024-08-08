@@ -31,7 +31,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <nav className="hidden md:flex w-2/3 justify-end space-x-12">
+        <nav className="hidden md:flex w-2/3 justify-end space-x-12 mt-2">
          <Link to="/" className="hover:text-orange-500 hover:underline">
             Home
           </Link>

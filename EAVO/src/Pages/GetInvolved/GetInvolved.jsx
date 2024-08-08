@@ -30,7 +30,7 @@ const GetInvolved = () => {
   };
 
   return (
-    <div className="bg-gray-100 max-w-screen-4xl min-h-screen flex flex-col font-sans items-center p-4">
+    <div className="bg-gray-100 max-w-screen-4xl min-h-screen flex flex-col font-sans items-center p-4 w-[90%] mx-auto">
       <div className="w-full   bg-white shadow-lg rounded-lg p-8 mb-8">
         <h1 className="text-6xl font-bold text-gray-800 mb-6">Why Join Us?</h1>
         <p className="text-xxl  text-gray-700 mb-4">
