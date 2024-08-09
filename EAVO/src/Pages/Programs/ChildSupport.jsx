@@ -9,7 +9,7 @@ import women4 from "../../assets/Images/child4.jpg";
 
 const ChildSupport = () => {
   return (
-    <div className="bg-gray-100 min-h-screen p-3">
+    <div className="bg-gray-100 min-h-screen p-3 w-[90%] mx-auto">
       <div className="p-2 bg-white">
         {/* Header */}
         <header className="text-center mb-4 flex">

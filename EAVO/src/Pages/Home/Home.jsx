@@ -1,7 +1,4 @@
 import p from "../../assets/p.png";
-import p1 from "../../assets/p1.png";
-import p1copy from "../../assets/p1Copy.png";
-import p2 from "../../assets/p2.png";
 import p3 from "../../assets/p3.png";
 import p4 from "../../assets/p4-removebg-preview.png";
 import p5 from "../../assets/p5-removebg-preview.png";
@@ -16,58 +13,29 @@ import p14 from "../../assets/p14.png";
 import p15 from "../../assets/p15.png";
 import p16 from "../../assets/p16.png";
 import { Link } from "react-router-dom";
-import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import React, { useState } from "react";
+import pic1 from "../../assets/pic1.jpg";
+import pic2 from "../../assets/pic2.jpg";
+import pic3 from "../../assets/pic3.jpg";
+import img1 from '../../assets/about-us1.jpg';
+import {useState } from 'react';
+import ContactForm from "../ContactUS/ContactusForm";
 function Home() {
-  const [images, setImages] = useState([
-    { id: "image1", src: p1copy },
-    { id: "image2", src: p2 },
-    { id: "image3", src: p3 },
-  ]);
+  const images = [pic1, pic2, pic3];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const totalImages = images.length;
 
-  const [activeIndex, setActiveIndex] = useState(1);
-
-  const swapLeft = () => {
-    setImages((prevImages) => {
-      const newImages = [...prevImages];
-      const temp = newImages[0];
-      newImages[0] = newImages[1];
-      newImages[1] = newImages[2];
-      newImages[2] = temp;
-      return newImages;
-    });
-    setActiveIndex((prevIndex) => (prevIndex === 0 ? 2 : prevIndex - 1));
+  const prevSlide = () => {
+    setCurrentIndex((currentIndex - 1 + totalImages) % totalImages);
   };
 
-  const swapRight = () => {
-    setImages((prevImages) => {
-      const newImages = [...prevImages];
-      const temp = newImages[2];
-      newImages[2] = newImages[1];
-      newImages[1] = newImages[0];
-      newImages[0] = temp;
-      return newImages;
-    });
-    setActiveIndex((prevIndex) => (prevIndex === 2 ? 0 : prevIndex + 1));
+  const nextSlide = () => {
+    setCurrentIndex((currentIndex + 1) % totalImages);
   };
-
-  const handleDotClick = (index) => {
-    setActiveIndex(index);
-
-    setImages((prevImages) => {
-      const newImages = [...prevImages];
-      const temp = newImages[index];
-      newImages[index] = newImages[1];
-      newImages[1] = temp;
-      return newImages;
-    });
-  };
-
   return (
     <>
       {/* first section */}
-      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-2 border border-gray-300 shadow-lg bg-gradient-to-r from-[#171742] to-[#cfcadf]">
+      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-2 border border-gray-300 shadow-lg bg-gradient-to-r from-[#171742] to-[#cfcadf] w-11/12 mx-auto">
         <div className="flex flex-col justify-center items-center p-2 md:p-2 text-white flex-1">
           <h1 className="text-3xl md:text-6xl font-bold leading-tight text-center mb-6 md:mb-8 font-serif">
             Empowering African
@@ -101,32 +69,21 @@ function Home() {
         </div>
       </div>
       {/* second section */}
-      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-2">
-        <div className="flex-1 flex items-center justify-center p-4 md:p-1 md:pt-4">
-          <img
-            className="w-full h-full object-cover rounded-3xl"
-            src={p1}
-            alt="profile picture"
-          />
-        </div>
-
-        <div className="flex-1 p-4 md:p-6 text-[#171742] flex flex-col justify-start space-y-6">
-          <h1 className="text-5xl md:text-5xl font-bold leading-tight mb-6 font-serif text-center">
-            Welcome To EAVO
-          </h1>
-          <p className="font-semibold md:text-lg mb-4 text-xxl">
-            The Empowering African Voices Organization (EAVO) is a collective of
-            passionate African women and child rights activists,
-            Pan-Africanists, and advocates. <br />
-            Our mission is to support African women and children facing various
-            challenges such as marginalization, discrimination, and violence.
-          </p>
-          <p className="text-base md:text-lg mb-4 font-semibold">
-            We believe in the power of community and the strength that comes
-            from uniting our voices to create positive change. Our vision is a
-            world where African women and children are empowered, their rights
-            are respected, and they can live free from violence and
-            discrimination.
+      <div className='about-us'>
+      <div className='container mx-auto p-4 flex items-center'>
+        <img src={img1} alt="" className="w-1/2 h-1/2 rounded-md" />
+        <div className='w-1/2 pl-4'>
+          <h1 className="font-bold text-center text-4xl mb-4 font-serif">Welcome to EAVO</h1>
+          <p className='mb-4'>
+            The Empowering African Voices Organization (EAVO) is a collective of passionate
+            African women and child rights activists, Pan-Aficanists, and advocates.
+            Our mission is to support African women and children facing various challenges
+            such as marginalization, discrimination, and violence.
+            <br /><br />
+            We believe in the power of community and the strength that comes from uniting
+            our voices to create positive change. Our vision is a world where African women
+            and children are empowered, their rights are respected, and they can live free
+            from violence and discrimination.
           </p>
           <div className="flex items-start">
             <Link
@@ -138,83 +95,47 @@ function Home() {
           </div>
         </div>
       </div>
-      {/* third section */}
-      <div className="team">
-        <h1 className="text-6xl font-bold mb-4 text-center font-serif">Team</h1>
-        <div className="relative flex justify-center items-center">
-          <div
-            className="absolute left-4 md:left-[250px]  cursor-pointer"
-            onClick={swapLeft}
+      <div className="container mx-auto my-8">
+        <h2 className="text-center text-4xl font-bold mb-4">Team</h2>
+        
+        <div className="relative flex items-center justify-center ">
+          <button
+            className="absolute left-0 text-black z-10 p-2"
+            onClick={prevSlide}
           >
-            <i className="fas fa-chevron-left text-4xl text-black"></i>
+            <svg className="h-6 w-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.707 15.707a1 1 0 01-1.414 0L7 11.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 010 1.414z" />
+            </svg>
+          </button>
+          <div className="flex transition-transform duration-500" >
+            {images.map((image, index) => (
+              <div key={index} className={`flex-none w-96 px-2 ${index === currentIndex ? 'opacity-100' : 'opacity-70'}`}>
+                <img src={image} alt={`Slide ${index}`} className="w-full h-64 object-cover rounded-md" />
+              </div>
+            ))}
           </div>
-          {/* Single image for small screens */}
-          <div
-            className="relative w-full md:hidden flex items-center justify-center"
-            style={{ height: "200px" }}
+          <button
+            className="absolute right-0 text-black z-10 p-2"
+            onClick={nextSlide}
           >
-            <img
-              id="image1"
-              className="w-3/4 h-full object-cover border-4 border-black rounded-lg"
-              src={images[activeIndex].src}
-              alt="profile picture"
-            />
-          </div>
-          {/* large size */}
-          <div className="absolute left-1/4 w-1/4 md:w-1/4 items-center hidden md:block justify-center h-[300]">
-            <img
-              id="image1"
-              className="w-full h-full object-cover border-4 border-black rounded-lg"
-              src={images[0].src}
-              alt="profile picture"
-            />
-          </div>
-
-          <div className="relative w-1/5 z-10 hidden md:block responsive-height">
-            <img
-              id="image2"
-              className="w-full h-full object-cover border-4 border-black rounded-lg mt-24"
-              src={images[1].src}
-              alt="profile picture"
-            />
-          </div>
-
-          <div className="absolute right-1/4 w-1/5 items-center justify-center hidden md:block responsive-height">
-            <img
-              id="image3"
-              className="w-full h-full object-cover border-4 border-black rounded-lg"
-              src={images[2].src}
-              alt="profile picture"
-            />
-          </div>
-
-          <div
-            className="absolute right-4 md:right-[250px]  cursor-pointer "
-            onClick={swapRight}
-          >
-            <i className="fas fa-chevron-right text-4xl text-black"></i>
-          </div>
+            <svg className="h-6 w-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.293 4.293a1 1 0 011.414 0L13 8.586l4.293-4.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z" />
+            </svg>
+          </button>
         </div>
-
-        <div className="flex justify-center mt-36">
+        <div className="flex justify-center mt-4">
           {images.map((_, index) => (
-            <span
+            <div
               key={index}
-              className={`dot rounded-full h-3 w-3 mx-1 ${
-                activeIndex === index ? "bg-black" : "bg-gray-300"
-              }`}
-              onClick={() => handleDotClick(index)}
-            ></span>
+              className={`w-2 h-2 rounded-full mx-1 cursor-pointer ${index === currentIndex ? 'bg-black' : 'bg-gray-400'}`}
+              onClick={() => setCurrentIndex(index)}
+            ></div>
           ))}
         </div>
-
-        <div className="team-p text-center mt-4 ">
-          <p className="text-xl font-serif ">
-            Profiles of key members and volunteers
-          </p>
-        </div>
+        <p className="text-center mt-4">Profiles of key members and volunteers</p>
       </div>
-      {/* fourth section */}
+    </div>
+      {/* third section */}
       <h1 className="text-6xl font-bold m-12 text-center font-serif">Impact</h1>
 
       <div className="flex flex-wrap justify-center gap-16">
@@ -261,13 +182,13 @@ function Home() {
           <h4 className="text-indigo-900">Women trained and employed.</h4>
         </div>
       </div>
-      {/* fifth section */}
-      <div className="our mr-2">
+      {/* fourth section */}
+      <div className="our mr-2 p-8 m-3 w-[93%] mx-auto">
         <h1 className="text-6xl font-bold m-10 text-center font-serif">
           Our Mission
         </h1>
         <div className="p-6">
-        <p>
+        <p className="text-center mt-2 px-4">
           The Empowering African Voices Organization (EAVO) is dedicated to
           supporting African women and children by advocating for their rights,
           providing essential support services, and empowering communities. Our
@@ -276,7 +197,7 @@ function Home() {
           cohesion.
         </p>
         <br />
-        <p>
+        <p className="text-center mt-2 px-4">
           At EAVO, we value empathy, integrity, equality, collaboration, and
           resilience, guiding our support for African women and children. We
           engage communities, build capacity, advocate for policy changes,
@@ -285,7 +206,7 @@ function Home() {
         </p>
       </div>
       </div>
-      {/* sixth section */}
+      {/* fifth section */}
 
       <h1 className="text-6xl  font-bold m-10 text-center font-serif">
         Our Programs
@@ -363,7 +284,7 @@ function Home() {
       <h1 className="text-4xl font-bold m-10 text-center font-serif">
         Get Involved
       </h1>
-      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 border border-gray-300 shadow-lg bg-gray-100 ">
+      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 border border-gray-300 shadow-lg bg-gray-100 w-[90%] mx-auto">
         <div className="flex-1 p-10">
           <h2 className="text-3xl md:text-3xl font-bold leading-tight mb-4 font-serif text-center text-[#171742]">
             Volunteer Opportunities
@@ -408,7 +329,7 @@ function Home() {
       </div>
 
       {/* eighth section */}
-      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 border border-gray-300 shadow-lg bg-gray-100 ">
+      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 border border-gray-300 shadow-lg bg-gray-100 w-[90%] mx-auto ">
         <div className="flex flex-1 items-center justify-center">
           <img
             className="w-full h-full object-cover rounded-3xl"
@@ -417,7 +338,7 @@ function Home() {
           ></img>
         </div>
 
-        <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 ">
+        <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4">
           <div className="flex-1 p-10">
             <h2 className="text-3xl md:text-3xl font-bold leading-tight mb-4 font-serif text-center text-[#171742]">
               Donation Information
@@ -458,7 +379,7 @@ function Home() {
 
       {/* ninth section */}
 
-      <div className="upcoming">
+      <div className="upcoming w-[90%] mx-auto">
         <h1 className="text-4xl font-bold text-center font-serif pt-10">
           Upcoming Events
         </h1>
@@ -571,11 +492,21 @@ function Home() {
       </div>
 
       {/* tenth section */}
-
-      <h1 className="text-4xl font-bold m-10 text-center font-serif">
+      <section className="p-8 m-3 w-11/12 mx-auto ">
+      <h2 className="text-3xl text-center font-bold mb-4">Contact Us</h2>
+      <div className="flex flex-col lg:flex-row bg-gray-200 rounded-xl items-center">
+        <div className="w-full lg:w-1/2">
+          <img src={p15} className="rounded-xl w-full h-full object-cover" alt="Contact Us" />
+        </div>
+        <div className="w-full lg:w-1/2 p-1">
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+      {/* <h1 className="text-4xl font-bold m-10 text-center font-serif">
         Contact Us
       </h1>
-      <div className="flex flex-col md:flex-row h-full rounded-3xl overflow-hidden m-5 border border-gray-300 shadow-lg bg-gray-100">
+      <div className="flex flex-col md:flex-row h-full rounded-3xl overflow-hidden m-5 border border-gray-300 shadow-lg bg-gray-100 w-[90%] mx-auto">
         <div className="flex items-center justify-center w-full md:w-1/2">
           <img
             className="w-full h-full object-cover rounded-3xl"
@@ -648,7 +579,7 @@ function Home() {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

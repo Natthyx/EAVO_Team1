@@ -4,7 +4,7 @@ import { Info } from "@mui/icons-material";
 
 const AdvocacyAwareness = () => {
   return (
-    <div className="bg-gray-100 min-h-screen p-3">
+    <div className="bg-gray-100 min-h-screen p-3 w-[90%] mx-auto">
       <div className="p-2 bg-white">
         <header className="text-center mb-4 flex">
           <Info fontSize="inherit" sx={{ fontSize: 100, color: "#9C27B0" }} />

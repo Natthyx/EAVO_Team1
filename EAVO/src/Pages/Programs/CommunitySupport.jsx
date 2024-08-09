@@ -4,7 +4,7 @@ import { People, Star, Group } from "@mui/icons-material";
 
 const CommunityLeadership = () => {
   return (
-    <div className="bg-gray-100 min-h-screen p-6">
+    <div className="bg-gray-100 min-h-screen p-6 w-[90%] mx-auto">
       <div className="p-6 bg-white rounded-lg shadow-lg">
         <header className="text-center mb-8">
           <h1 className="text-5xl font-bold text-blue-900 mb-4">

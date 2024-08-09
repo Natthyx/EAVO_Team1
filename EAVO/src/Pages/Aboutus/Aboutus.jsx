@@ -3,8 +3,8 @@ import aboutUsImage from '../../assets/p8.png'
 const AboutUs = () => {
   return (
     
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center font-sans py-5 px-5">
-      <div className="w-full max-w-screen-3xl bg-white rounded-lg shadow-2xl p-10 font-sans">
+    <div className="bg-gray-100 min-h-screen flex flex-col items-center font-sans py-5 px-5 w-11/12 mx-auto">
+      <div className="w-full max-w-screen-3xl bg-white rounded-lg p-10 font-sans">
       <header className="text-center mb-10">
           <div className="text-6xl font-bold text-blue-950 mb-2">
             East African Voices Organization
@@ -77,16 +77,14 @@ const AboutUs = () => {
         </section>
         <section className="mb-10 ">
           <h2 className="text-5xl font-bold text-blue-600 mb-6">Our Values</h2>
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-6 justify-center">
             <div className="w-full sm:w-1/2 lg:w-1/4 bg-orange-300 p-6 rounded-lg shadow-2xl">
               <h3 className="text-3xl font-bold text-gray-800 mb-2">
                 Integrity
               </h3>
               <p className="text-xxl text-gray-600">
                 We uphold the highest possible standards of honesty and
-                transparency in
-                <br />
-                all our actions.
+                transparency in all our actions.
               </p>
             </div>
             <div className="w-full sm:w-1/2 lg:w-1/4 bg-orange-300 p-6 rounded-lg shadow-2xl">
