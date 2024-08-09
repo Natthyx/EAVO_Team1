@@ -1,42 +1,72 @@
-import p from "../../assets/p.png";
-import p3 from "../../assets/p3.png";
-import p4 from "../../assets/p4-removebg-preview.png";
-import p5 from "../../assets/p5-removebg-preview.png";
-import p6 from "../../assets/p6-removebg-preview.png";
-import p7 from "../../assets/p7.png";
-import p8 from "../../assets/p8.png";
-import p9 from "../../assets/p9.png";
-import p11 from "../../assets/p11.png";
-import p12 from "../../assets/p12.png";
-import p13 from "../../assets/p13.png";
-import p14 from "../../assets/p14.png";
-import p15 from "../../assets/p15.png";
-import p16 from "../../assets/p16.png";
-import { Link } from "react-router-dom";
-import "react-phone-input-2/lib/style.css";
-import pic1 from "../../assets/pic1.jpg";
-import pic2 from "../../assets/pic2.jpg";
-import pic3 from "../../assets/pic3.jpg";
-import img1 from '../../assets/about-us1.jpg';
-import {useState } from 'react';
-import ContactForm from "../ContactUS/ContactusForm";
-function Home() {
-  const images = [pic1, pic2, pic3];
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const totalImages = images.length;
+import p from "./assets/p.png";
+import p1 from "./assets/p1.png";
+import p1copy from "./assets/p1Copy.png";
+import p2 from "./assets/p2.png";
+import p3 from "./assets/p3.png";
+import p4 from "./assets/p4-removebg-preview.png";
+import p5 from "./assets/p5-removebg-preview.png";
+import p6 from "./assets/p6-removebg-preview.png";
+import p7 from "./assets/p7.png";
+import p8 from "./assets/p8.png";
+import p9 from "./assets/p9.png";
+import p11 from "./assets/p11.png";
+import p12 from "./assets/p12.png";
+import p13 from "./assets/p13.png";
+import p14 from "./assets/p14.png";
+import p15 from "./assets/p15.png";
+import p16 from "./assets/p16.png";
 
-  const prevSlide = () => {
-    setCurrentIndex((currentIndex - 1 + totalImages) % totalImages);
+import React, { useState } from "react";
+function App() {
+  const [images, setImages] = useState([
+    { id: "image1", src: p1copy },
+    { id: "image2", src: p2 },
+    { id: "image3", src: p3 },
+  ]);
+
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  const swapLeft = () => {
+    setImages((prevImages) => {
+      const newImages = [...prevImages];
+      const temp = newImages[0];
+      newImages[0] = newImages[1];
+      newImages[1] = newImages[2];
+      newImages[2] = temp;
+      return newImages;
+    });
+    setActiveIndex((prevIndex) => (prevIndex === 0 ? 2 : prevIndex - 1));
   };
 
-  const nextSlide = () => {
-    setCurrentIndex((currentIndex + 1) % totalImages);
+  const swapRight = () => {
+    setImages((prevImages) => {
+      const newImages = [...prevImages];
+      const temp = newImages[2];
+      newImages[2] = newImages[1];
+      newImages[1] = newImages[0];
+      newImages[0] = temp;
+      return newImages;
+    });
+    setActiveIndex((prevIndex) => (prevIndex === 2 ? 0 : prevIndex + 1));
   };
+
+  const handleDotClick = (index) => {
+    setActiveIndex(index);
+
+    setImages((prevImages) => {
+      const newImages = [...prevImages];
+      const temp = newImages[index];
+      newImages[index] = newImages[1];
+      newImages[1] = temp;
+      return newImages;
+    });
+  };
+
   return (
     <>
       {/* first section */}
-      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-2 border border-gray-300 shadow-lg bg-gradient-to-r from-[#171742] to-[#cfcadf] w-11/12 mx-auto">
-        <div className="flex flex-col justify-center items-center p-2 md:p-2 text-white flex-1">
+      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 border border-gray-300 shadow-lg bg-gradient-to-r from-[#171742] to-[#cfcadf]">
+        <div className="flex flex-col justify-center items-center p-6 md:p-12 text-white flex-1">
           <h1 className="text-3xl md:text-6xl font-bold leading-tight text-center mb-6 md:mb-8 font-serif">
             Empowering African
             <br />
@@ -45,18 +75,12 @@ function Home() {
             for a Brighter Future.
           </h1>
           <div className="flex flex-row gap-4 md:gap-8 items-center">
-            <Link
-              to="/Donate"
-              className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
-            >
-              <p className="text-3xl">Donate</p>
-            </Link>
-            <Link
-              to="/GetInvolved"
-              className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
-            >
-              <p className="text-3xl">Join Us</p>
-            </Link>
+            <button className="bg-[#f44336] hover:bg-[#f36e6e] font-semibold text-white border border-[#f44336] hover:border-[#d32f2f] px-8 md:px-16 py-3 text-base md:text-lg rounded-full cursor-pointer mb-4 md:mb-0">
+              Donate
+            </button>
+            <button className="bg-[#f44336] hover:bg-[#f36e6e] font-semibold text-white border border-[#f44336] hover:border-[#d32f2f] px-8 md:px-16 py-3 text-base md:text-lg rounded-full cursor-pointer mb-4 md:mb-0">
+              Join Us
+            </button>
           </div>
         </div>
 
@@ -69,76 +93,123 @@ function Home() {
         </div>
       </div>
       {/* second section */}
-      <div className='about-us'>
-      <div className='container mx-auto p-4 flex items-center'>
-        <img src={img1} alt="" className="w-1/2 h-1/2 rounded-md" />
-        <div className='w-1/2 pl-4'>
-          <h1 className="font-bold text-center text-4xl mb-4 font-serif">Welcome to EAVO</h1>
-          <p className='mb-4'>
-            The Empowering African Voices Organization (EAVO) is a collective of passionate
-            African women and child rights activists, Pan-Aficanists, and advocates.
-            Our mission is to support African women and children facing various challenges
-            such as marginalization, discrimination, and violence.
-            <br /><br />
-            We believe in the power of community and the strength that comes from uniting
-            our voices to create positive change. Our vision is a world where African women
-            and children are empowered, their rights are respected, and they can live free
-            from violence and discrimination.
+      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4">
+        <div className="flex-1 flex items-center justify-center p-4 md:p-1 md:pt-4">
+          <img
+            className="w-full h-full object-cover rounded-3xl"
+            src={p1}
+            alt="profile picture"
+          />
+        </div>
+
+        <div className="flex-1 p-4 md:p-6 text-[#171742] flex flex-col justify-start space-y-4">
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4 font-serif text-center">
+            Welcome To EAVO
+          </h1>
+          <p className="text-base md:text-lg mb-4">
+            The Empowering African Voices Organization (EAVO) is a collective of
+            passionate African women and child rights activists,
+            Pan-Africanists, and advocates. <br />
+            Our mission is to support African women and children facing various
+            challenges such as marginalization, discrimination, and violence.
+          </p>
+          <p className="text-base md:text-lg mb-4">
+            We believe in the power of community and the strength that comes
+            from uniting our voices to create positive change. Our vision is a
+            world where African women and children are empowered, their rights
+            are respected, and they can live free from violence and
+            discrimination.
           </p>
           <div className="flex items-start">
-            <Link
-              to="/Aboutus"
-              className="bg-orange-500 mt-12 text-white rounded-3xl py-2 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
-            >
-              <p className="text-2xl">More About us</p>
-            </Link>
+            <button className="bg-[#f44336] hover:bg-[#d32f2f] text-white border border-[#f44336] hover:border-[#d32f2f] px-8 py-3 text-base rounded-full cursor-pointer flex items-center gap-4 font-semibold">
+              More About Us
+              <span className="text-white bg-white rounded-full p-2 pl-3 pr-3 flex items-center justify-center">
+                <i class="fas fa-chevron-right text-orange-500"></i>
+              </span>
+            </button>
           </div>
         </div>
       </div>
-      <div className="container mx-auto my-8">
-        <h2 className="text-center text-4xl font-bold mb-4">Team</h2>
-        
-        <div className="relative flex items-center justify-center ">
-          <button
-            className="absolute left-0 text-black z-10 p-2"
-            onClick={prevSlide}
+      {/* third section */}
+      <div className="team">
+        <h1 className="text-4xl font-bold mb-6 text-center font-serif">Team</h1>
+        <div className="relative flex justify-center items-center">
+          <div
+            className="absolute left-4 md:left-[250px]  cursor-pointer"
+            onClick={swapLeft}
           >
-            <svg className="h-6 w-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.707 15.707a1 1 0 01-1.414 0L7 11.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 010 1.414z" />
-            </svg>
-          </button>
-          <div className="flex transition-transform duration-500" >
-            {images.map((image, index) => (
-              <div key={index} className={`flex-none w-96 px-2 ${index === currentIndex ? 'opacity-100' : 'opacity-70'}`}>
-                <img src={image} alt={`Slide ${index}`} className="w-full h-64 object-cover rounded-md" />
-              </div>
-            ))}
+            <i className="fas fa-chevron-left text-4xl text-black"></i>
           </div>
-          <button
-            className="absolute right-0 text-black z-10 p-2"
-            onClick={nextSlide}
+          {/* Single image for small screens */}
+          <div
+            className="relative w-full md:hidden flex items-center justify-center"
+            style={{ height: "200px" }}
           >
-            <svg className="h-6 w-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.293 4.293a1 1 0 011.414 0L13 8.586l4.293-4.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z" />
-            </svg>
-          </button>
+            <img
+              id="image1"
+              className="w-3/4 h-full object-cover border-4 border-black rounded-lg"
+              src={images[activeIndex].src}
+              alt="profile picture"
+            />
+          </div>
+          {/* large size */}
+          <div className="absolute left-1/4 w-1/4 md:w-1/4 items-center hidden md:block justify-center h-[300]">
+            <img
+              id="image1"
+              className="w-full h-full object-cover border-4 border-black rounded-lg"
+              src={images[0].src}
+              alt="profile picture"
+            />
+          </div>
+
+          <div className="relative w-1/5 z-10 hidden md:block responsive-height">
+            <img
+              id="image2"
+              className="w-full h-full object-cover border-4 border-black rounded-lg mt-24"
+              src={images[1].src}
+              alt="profile picture"
+            />
+          </div>
+
+          <div className="absolute right-1/4 w-1/5 items-center justify-center hidden md:block responsive-height">
+            <img
+              id="image3"
+              className="w-full h-full object-cover border-4 border-black rounded-lg"
+              src={images[2].src}
+              alt="profile picture"
+            />
+          </div>
+
+          <div
+            className="absolute right-4 md:right-[250px]  cursor-pointer "
+            onClick={swapRight}
+          >
+            <i className="fas fa-chevron-right text-4xl text-black"></i>
+          </div>
         </div>
-        <div className="flex justify-center mt-4">
+
+        <div className="flex justify-center mt-36">
           {images.map((_, index) => (
-            <div
+            <span
               key={index}
-              className={`w-2 h-2 rounded-full mx-1 cursor-pointer ${index === currentIndex ? 'bg-black' : 'bg-gray-400'}`}
-              onClick={() => setCurrentIndex(index)}
-            ></div>
+              className={`dot rounded-full h-3 w-3 mx-1 ${
+                activeIndex === index ? "bg-black" : "bg-gray-300"
+              }`}
+              onClick={() => handleDotClick(index)}
+            ></span>
           ))}
         </div>
-        <p className="text-center mt-4">Profiles of key members and volunteers</p>
-      </div>
-    </div>
-      {/* third section */}
-      <h1 className="text-6xl font-bold m-12 text-center font-serif">Impact</h1>
 
-      <div className="flex flex-wrap justify-center gap-16">
+        <div className="team-p text-center mt-4 ">
+          <p className="text-xl font-serif ">
+            Profiles of key members and volunteers
+          </p>
+        </div>
+      </div>
+      {/* fourth section */}
+      <h1 className="text-4xl font-bold m-10 text-center font-serif">Impact</h1>
+
+      <div className="flex flex-wrap justify-center gap-6">
         <div className="flex flex-col items-center bg-gray-200 p-6 rounded-3xl text-center shadow-md border-2 border-gray-300 max-w-[260px] h-[250px]">
           <img
             src={p4}
@@ -182,13 +253,12 @@ function Home() {
           <h4 className="text-indigo-900">Women trained and employed.</h4>
         </div>
       </div>
-      {/* fourth section */}
-      <div className="our mr-2 p-8 m-3 w-[93%] mx-auto">
-        <h1 className="text-6xl font-bold m-10 text-center font-serif">
+      {/* fifth section */}
+      <div className="our mr-2">
+        <h1 className="text-4xl font-bold m-10 text-center font-serif">
           Our Mission
         </h1>
-        <div className="p-6">
-        <p className="text-center mt-2 px-4">
+        <p>
           The Empowering African Voices Organization (EAVO) is dedicated to
           supporting African women and children by advocating for their rights,
           providing essential support services, and empowering communities. Our
@@ -197,7 +267,7 @@ function Home() {
           cohesion.
         </p>
         <br />
-        <p className="text-center mt-2 px-4">
+        <p>
           At EAVO, we value empathy, integrity, equality, collaboration, and
           resilience, guiding our support for African women and children. We
           engage communities, build capacity, advocate for policy changes,
@@ -205,14 +275,13 @@ function Home() {
           improve our impact.
         </p>
       </div>
-      </div>
-      {/* fifth section */}
+      {/* sixth section */}
 
-      <h1 className="text-6xl  font-bold m-10 text-center font-serif">
+      <h1 className="text-4xl font-bold m-10 text-center font-serif">
         Our Programs
       </h1>
 
-      <div className="flex justify-center max-w-screen-4xl flex-wrap gap-3 px-2 ">
+      <div className="flex justify-center w-full flex-wrap gap-3 px-2 ">
         <div className="flex flex-col items-center w-full max-w-md border-2 border-gray-200 shadow-md rounded-3xl bg-gray-100 mt-6 ">
           <img
             src={p7}
@@ -227,12 +296,12 @@ function Home() {
             achieve financial independence. We offer training in various trades
             such as tailoring, baking, and computer skills.
           </p>
-          <Link 
-  to="/WomenTraining" 
-  className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-3 inline-block text-center"
->
-  Learn More
-</Link>
+          <button
+            type="submit"
+            className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-3"
+          >
+            Learn more
+          </button>
         </div>
 
         <div className="flex flex-col items-center w-full max-w-md border-2 border-gray-200 shadow-md rounded-3xl bg-gray-100 mt-6">
@@ -249,12 +318,12 @@ function Home() {
             marginalized communities have access to quality education through
             scholarships, school supplies, and tutoring.
           </p>
-          <Link 
-  to="/ChildSupport"
-  className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-3 inline-block text-center"
->
-  Learn More
-</Link>
+          <button
+            type="submit"
+            className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-4"
+          >
+            Learn more
+          </button>
         </div>
 
         <div className="flex flex-col items-center w-full max-w-md border-2 border-gray-200 shadow-md rounded-3xl bg-gray-100 mt-6">
@@ -271,12 +340,12 @@ function Home() {
             education to underserved communities to improve overall health and
             well-being.
           </p>
-          <Link 
-  to="/HealthCare" 
-  className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-3 inline-block text-center"
->
-  Learn More
-</Link>
+          <button
+            type="submit"
+            className="bg-[#171742] text-white mt-2 px-11 py-2 rounded-2xl mb-4"
+          >
+            Learn more
+          </button>
         </div>
       </div>
       {/* seventh section */}
@@ -284,7 +353,7 @@ function Home() {
       <h1 className="text-4xl font-bold m-10 text-center font-serif">
         Get Involved
       </h1>
-      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 border border-gray-300 shadow-lg bg-gray-100 w-[90%] mx-auto">
+      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 border border-gray-300 shadow-lg bg-gray-100 ">
         <div className="flex-1 p-10">
           <h2 className="text-3xl md:text-3xl font-bold leading-tight mb-4 font-serif text-center text-[#171742]">
             Volunteer Opportunities
@@ -310,12 +379,9 @@ function Home() {
             and event planning.
           </p>
           <div className="flex justify-center pt-10">
-          <Link
-                to="/Donate"
-                className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
-              >
-                <p className="text-3xl">Apply</p>
-              </Link>
+            <button className="bg-[#f44336] hover:bg-[#f36e6e] font-semibold text-white border border-[#f44336] hover:border-[#d32f2f] px-8 md:px-16 py-3 text-base md:text-lg rounded-full cursor-pointer mb-4 md:mb-0 ">
+              Apply
+            </button>
           </div>
         </div>
 
@@ -329,7 +395,7 @@ function Home() {
       </div>
 
       {/* eighth section */}
-      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 border border-gray-300 shadow-lg bg-gray-100 w-[90%] mx-auto ">
+      <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 border border-gray-300 shadow-lg bg-gray-100 ">
         <div className="flex flex-1 items-center justify-center">
           <img
             className="w-full h-full object-cover rounded-3xl"
@@ -338,7 +404,7 @@ function Home() {
           ></img>
         </div>
 
-        <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4">
+        <div className="flex flex-col md:flex-row h-auto md:h-[500px] rounded-3xl overflow-hidden m-4 ">
           <div className="flex-1 p-10">
             <h2 className="text-3xl md:text-3xl font-bold leading-tight mb-4 font-serif text-center text-[#171742]">
               Donation Information
@@ -366,12 +432,9 @@ function Home() {
             </p>
 
             <div className="flex justify-center pt-10">
-              <Link
-                to="/Donate"
-                className="bg-orange-500 mt-12 text-white rounded-3xl py-3 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
-              >
-                <p className="text-3xl">Donate</p>
-              </Link>
+              <button className="bg-[#f44336] hover:bg-[#f36e6e] font-semibold text-white border border-[#f44336] hover:border-[#d32f2f] px-8 md:px-16 py-3 text-base md:text-lg rounded-full cursor-pointer mb-4 md:mb-0 ">
+                Donate
+              </button>
             </div>
           </div>
         </div>
@@ -379,7 +442,7 @@ function Home() {
 
       {/* ninth section */}
 
-      <div className="upcoming w-[90%] mx-auto">
+      <div className="upcoming">
         <h1 className="text-4xl font-bold text-center font-serif pt-10">
           Upcoming Events
         </h1>
@@ -492,21 +555,11 @@ function Home() {
       </div>
 
       {/* tenth section */}
-      <section className="p-8 m-3 w-11/12 mx-auto ">
-      <h2 className="text-3xl text-center font-bold mb-4">Contact Us</h2>
-      <div className="flex flex-col lg:flex-row bg-gray-200 rounded-xl items-center">
-        <div className="w-full lg:w-1/2">
-          <img src={p15} className="rounded-xl w-full h-full object-cover" alt="Contact Us" />
-        </div>
-        <div className="w-full lg:w-1/2 p-1">
-          <ContactForm />
-        </div>
-      </div>
-    </section>
-      {/* <h1 className="text-4xl font-bold m-10 text-center font-serif">
+
+      <h1 className="text-4xl font-bold m-10 text-center font-serif">
         Contact Us
       </h1>
-      <div className="flex flex-col md:flex-row h-full rounded-3xl overflow-hidden m-5 border border-gray-300 shadow-lg bg-gray-100 w-[90%] mx-auto">
+      <div className="flex flex-col md:flex-row h-full rounded-3xl overflow-hidden m-5 border border-gray-300 shadow-lg bg-gray-100">
         <div className="flex items-center justify-center w-full md:w-1/2">
           <img
             className="w-full h-full object-cover rounded-3xl"
@@ -515,11 +568,11 @@ function Home() {
           />
         </div>
         <div className="flex flex-col w-full md:w-1/2 p-5 md:p-10">
-          <h2 className="text-3xl font-bold mb-5 text-center font-serif bg-gray-100 ">
+          <h2 className="text-3xl font-bold mb-5 text-center font-serif">
             Contact Form
           </h2>
-          <div className="bg-neutral-300 p-5 shadow-2xl rounded-3xl ">
-            <form className="flex-grow space-y-4 space-x-2">
+          <div className="bg-neutral-300 p-5 rounded-3xl">
+            <form className="flex-grow space-y-4">
               <div>
                 <label className="block mb-2">
                   <b>Full Name</b>
@@ -545,11 +598,18 @@ function Home() {
                 <label className="block mb-2">
                   <b>Phone Number</b>
                 </label>
-                <PhoneInput
-                  country={"et"}
-                  inputClass="w-full p-2 rounded border"
-                  containerClass="w-full"
-                />
+                <div className="flex space-x-2">
+                  <input
+                    type="tel"
+                    defaultValue="+251"
+                    className="w-1/4 p-2 rounded border"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone number"
+                    className="w-3/4 p-2 rounded border"
+                  />
+                </div>
               </div>
               <div>
                 <label className="block mb-2">
@@ -579,9 +639,9 @@ function Home() {
             </form>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
 
-export default Home;
+export default App;
