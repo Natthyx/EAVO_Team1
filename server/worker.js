@@ -5,7 +5,11 @@ import dotenv from "dotenv";
 import MailClient from './utils/mailer.js';
 
 dotenv.config();
-const redis_url = process.env.REDIS_URL;
+const redis_url = {redis: {
+    port: process.env.REDIS_PORT,
+    host: process.env.REDIS_CLIENT,
+    password: process.env.REDIS_PASSWORD
+}}
 const PaymentInitiatorQueue = new Bull("paymentinitiator", redis_url);
 const PaymentVerifierQueue = new Bull("paymentverfier", redis_url);
 const MailerQueue = new Bull("mailerqueue", redis_url);

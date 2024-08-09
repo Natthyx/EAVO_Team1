@@ -4,7 +4,13 @@ import { createClient } from "redis";
 
 class RedisConnectionPool {
     constructor() {
-        this.client = createClient();
+      this.client = createClient({
+        password: process.env.REDIS_PASSWORD,
+        socket: {
+            host: process.env.REDIS_CLIENT,
+            port: process.env.REDIS_PORT
+        }
+      });
         this.isConnected = true;
         this.client.connect()
         this.client.on('connect', () => {

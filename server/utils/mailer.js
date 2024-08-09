@@ -4,7 +4,11 @@ import Bull from 'bull';
 
 
 dotenv.config()
-const redis_url = process.env.REDIS_URL;
+const redis_url = {redis: {
+    port: process.env.REDIS_PORT,
+    host: process.env.REDIS_CLIENT,
+    password: process.env.REDIS_PASSWORD
+}}
 const MailerQueue = new Bull("mailerqueue", redis_url);
 
 
