@@ -11,7 +11,7 @@ export default class Verification {
             const valid = await JwtManager.verify(token);
             if (!valid)
                 return res.status(401).json({status: false, message: "token validation error"});
-            req.body = valid;
+            Object.assign(req.body, valid);
             next()
         } catch (err) {
             return res.status(401).json({status: false, message: err.toString()});
@@ -79,6 +79,26 @@ export default class Verification {
         const { postalCode } = req.body
         if (!postalCode) {
             return res.status(400).json({status: false, message: "postalCode required"})
+        }
+        next()
+    }
+
+    static async ValidateEventPost(req, res, next) {
+        const { picture, title, description, date } = req.body
+        if (!picture) {
+            return res.status(400).json({status: false, message: "picture url required"})
+        }
+
+        if (!title) {
+            return res.status(400).json({status: false, message: "title required"})
+        }
+
+        if (!description) {
+            return res.status(400).json({status: false, message: "description required"})
+        }
+
+        if (!date) {
+            req.body.date = new Date()
         }
         next()
     }

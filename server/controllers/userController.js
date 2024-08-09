@@ -229,7 +229,10 @@ export default class UserController {
         }
 
         MailClient.composeEmailMessages(emailData, subject);
-        return res.status(200).json({status: true, message: "email is being sent"});
+        const subscriberEmails = allEmails.map((newsObj) => newsObj.email);
+        return res.status(200).json({status: true,
+            message: `email is being sent to the following emails`,
+            emails: subscriberEmails});
     }
 
     static async contactList(req, res) {

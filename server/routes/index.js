@@ -36,7 +36,7 @@ export default function injectRoutes(app) {
         UserController.resetPassword);
 
     app.get('/eavo/user/total-donation',
-        Verification.VerifyLogin,
+        Verification.ValidateEmail,
         UserController.totalDonated);
 
     app.post('/eavo/user/news/subscribe',
@@ -58,28 +58,30 @@ export default function injectRoutes(app) {
     )
 
     // event handler
-    app.get('/events/', EventHandler.getAllEvents);
-    app.post('/events/',
+    app.get('/eavo/events/', EventHandler.getAllEvents);
+    app.post('/eavo/events/',
         Verification.VerifyLogin,
+        Verification.ValidateEventPost,
         EventHandler.createEvent);
-    app.get('/events/:id', EventHandler.getEventById);
-    app.put('/events/:id',
+    app.get('/eavo/events/:id', EventHandler.getEventById);
+    app.put('/eavo/events/:id',
         Verification.VerifyLogin,
         EventHandler.updateEvent);
-    app.delete('/events/:id',
+    app.delete('/eavo/events/:id',
         Verification.VerifyLogin,
         EventHandler.deleteEvent)
 
     // program handler
-    app.get('/programs/', ProgramHandler.getAllPrograms);
-    app.post('/programs/',
+    app.get('/eavo/programs/', ProgramHandler.getAllPrograms);
+    app.post('/eavo/programs/',
         Verification.VerifyLogin,
+        Verification.ValidateEventPost,
         ProgramHandler.createProgram);
-    app.get('/programs/:id', ProgramHandler.getProgramById);
-    app.put('/programs/:id',
+    app.get('/eavo/programs/:id', ProgramHandler.getProgramById);
+    app.put('/eavo/programs/:id',
         Verification.VerifyLogin,
         ProgramHandler.updateProgram);
-    app.delete('/programs/:id',
+    app.delete('/eavo/programs/:id',
         Verification.VerifyLogin,
         ProgramHandler.deleteProgram);
 
