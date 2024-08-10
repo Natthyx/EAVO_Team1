@@ -70,31 +70,34 @@ function Home() {
       </div>
       {/* second section */}
       <div className='about-us'>
-      <div className='container mx-auto p-4 flex items-center'>
-        <img src={img1} alt="" className="w-1/2 h-1/2 rounded-md" />
-        <div className='w-1/2 pl-4'>
-          <h1 className="font-bold text-center text-4xl mb-4 font-serif">Welcome to EAVO</h1>
-          <p className='mb-4'>
-            The Empowering African Voices Organization (EAVO) is a collective of passionate
-            African women and child rights activists, Pan-Aficanists, and advocates.
-            Our mission is to support African women and children facing various challenges
-            such as marginalization, discrimination, and violence.
-            <br /><br />
-            We believe in the power of community and the strength that comes from uniting
-            our voices to create positive change. Our vision is a world where African women
-            and children are empowered, their rights are respected, and they can live free
-            from violence and discrimination.
-          </p>
-          <div className="flex items-start">
-            <Link
-              to="/Aboutus"
-              className="bg-orange-500 mt-12 text-white rounded-3xl py-2 px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500  flex items-center justify-center "
-            >
-              <p className="text-2xl">More About us</p>
-            </Link>
-          </div>
-        </div>
-      </div>
+      <div className='container mx-auto p-4 flex flex-col md:flex-row items-center'>
+  <img src={img1} alt="EAVO Image" className="w-full md:w-1/2 h-auto rounded-md mb-4 md:mb-0" />
+  <div className='w-full md:w-1/2 md:pl-4'>
+    <h1 className="font-bold text-center text-2xl md:text-4xl mb-4 font-serif">
+      Welcome to EAVO
+    </h1>
+    <p className='mb-4 text-sm md:text-base'>
+      The Empowering African Voices Organization (EAVO) is a collective of passionate
+      African women and child rights activists, Pan-Africanists, and advocates.
+      Our mission is to support African women and children facing various challenges
+      such as marginalization, discrimination, and violence.
+      <br /><br />
+      We believe in the power of community and the strength that comes from uniting
+      our voices to create positive change. Our vision is a world where African women
+      and children are empowered, their rights are respected, and they can live free
+      from violence and discrimination.
+    </p>
+    <div className="flex items-center justify-center md:justify-start">
+      <Link
+        to="/Aboutus"
+        className="bg-orange-500 mt-6 md:mt-12 text-white rounded-3xl py-2 px-8 md:px-12 font-semibold text-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 flex items-center justify-center"
+      >
+        <p className="text-xl md:text-2xl">More About us</p>
+      </Link>
+    </div>
+  </div>
+</div>
+
       <div className="container mx-auto my-8">
         <h2 className="text-center text-4xl font-bold mb-4">Team</h2>
         
