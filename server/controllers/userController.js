@@ -8,6 +8,7 @@ import { Donation } from '../models/donation.js';
 import CurrencyExchanger from '../utils/currencyExchanger.js';
 import { NewsLetter } from '../models/newsletter.js';
 import { Contact } from '../models/contactForm.js';
+import redisClient from '../utils/redisConnection.js';
 
 
 export default class UserController {
@@ -97,6 +98,9 @@ export default class UserController {
             return res.status(401).json({status: false, message: "Unauthorized"});
         }
         const token = await JwtManager.sign({username: user.username}, '1d')
+        await redisClient.set(token, 'Valid', 86400);
+        const v = await redisClient.get(token);
+        console.log(v);
         res.cookie('access_token', token, {httpOnly: true, expiresIn: '1d'});
         return res.status(200).json({status: true, token});
     }

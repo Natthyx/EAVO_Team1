@@ -1,4 +1,5 @@
 import JwtManager from "../controllers/validations/jwtAuth.js";
+import redisClient from "../utils/redisConnection.js";
 
 
 export default class Verification {
@@ -11,8 +12,32 @@ export default class Verification {
             const valid = await JwtManager.verify(token);
             if (!valid)
                 return res.status(401).json({status: false, message: "token validation error"});
+            const isTokenAvailable = await redisClient.get(token);
+            if (!isTokenAvailable || isTokenAvailable != "Valid") {
+                return res.status(200).json({status: false, message: 'token validation error'});
+            }
             Object.assign(req.body, valid);
             next()
+        } catch (err) {
+            return res.status(401).json({status: false, message: err.toString()});
+        }
+    }
+
+    static async VerifyLogout(req, res) {
+        try{
+            if (!req.headers['authorization']) {
+                return res.status(401).json({'error': 'Unauthorized'});
+            }
+            let token = req.headers['authorization'].split(' ')[1];
+            const valid = await JwtManager.verify(token);
+            if (!valid)
+                return res.status(401).json({status: false, message: "token validation error"});
+            const isTokenAvailable = await redisClient.get(token);
+            if (isTokenAvailable && isTokenAvailable === "Valid") {
+                await redisClient.del(token);
+                return res.status(200).json({status: true, message: 'logged out successfully'});
+            }
+            return res.status(200).json({status: false, message: 'invalid token'});
         } catch (err) {
             return res.status(401).json({status: false, message: err.toString()});
         }

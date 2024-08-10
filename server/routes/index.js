@@ -27,6 +27,9 @@ export default function injectRoutes(app) {
         Verification.ValidatePassword,
         UserController.login);
 
+    app.post('/eavo/admin/logout',
+        Verification.VerifyLogout);
+
     app.post('/eavo/admin/forgot-password',
         Verification.ValidateEmail,
         UserController.forgotPassword);
